@@ -1,5 +1,3 @@
-# Ignorar dists se houver
-dist/
 # Ignorar a pasta de módulos da npm
 node_modules/
 # Ignorar jsons
