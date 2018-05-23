@@ -1,0 +1,25 @@
+.header
+    >.container
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        padding-top: 70px
+        >.logo,
+        >.btn
+            flex: 0 0 auto
+            +mq(1048px, max)
+                flex: 1
+        >.btn
+            +mq(1048px, max)
+                display: none
+            >.fa 
+                border: 2px $purple solid 
+                +border(999px)
+                display: inline-block 
+                +rem(('line-height' : 22px, 'font-size' : 12px))
+                height: 25px
+                margin: -15px 0 -15px 5px
+                text-align: center
+                vertical-align: middle
+                width: 25px

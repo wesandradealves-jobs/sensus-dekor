@@ -1,0 +1,123 @@
+textarea,
+input
+    &[placeholder]
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+    &::-moz-placeholder
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+    &::-webkit-input-placeholder
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+    &:-ms-input-placeholder 
+        color: lightgray
+        font-weight: 300
+        opacity: 1
+        text-overflow: ellipsis
+
+.flex  
+    display: -webkit-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex    
+
+.container
+    display: block
+    max-width: 1715px
+    margin: 0 auto
+    padding-left: 15px
+    padding-right: 15px
+
+#wrap
+    @extend .flex
+    flex-flow: column wrap
+    justify-content: space-between 
+    min-height: 100%
+    overflow: hidden
+    >* 
+        width: 100%
+    .main
+        padding-top: 70px
+        padding-bottom: 70px
+        >.container
+            align-items: stretch
+            @extend .flex
+            flex-flow: row wrap 
+            justify-content: space-between
+            >* 
+                flex: 1
+                &[style]
+                    background-size: cover 
+                    background-position: center center 
+                    background-repeat: no-repeat
+                    margin-right: -15px
+                    min-height: 720px
+                    +mq(1180px, max)
+                        display: none
+                &:not(:only-child):nth-child(2n+1)
+                    padding-right: 30px
+                    +mq(737px, max)
+                        padding-right: 0
+                    &+div 
+                        padding-left: 30px
+                        +mq(737px, max)
+                            padding-left: 0
+                >img,svg 
+                    max-width: 100%
+.page-header
+    color: $purple
+    text-transform: uppercase
+    .page-title
+        font-weight: 800
+        +rem('font-size', 30px)
+        &+p
+            +rem('font-size', 19px)
+            font-weight: 300
+            padding: 15px 0
+.content
+    p 
+        color: $purple
+        +rem(('font-size' : 14px, 'line-height' : 22px))
+        text-align: justify
+    &.-grid-content
+        align-items: stretch 
+        @extend .flex
+        flex-flow: row wrap
+        +mq(737px, max)
+            flex-flow: column wrap
+        justify-content: space-between
+        >* 
+            flex: 1
+            &:not(:only-child):nth-child(2n+1)
+                padding-right: 15px
+                +mq(737px, max)
+                    padding-right: 0
+                    padding-bottom: 15px
+                &+*
+                    padding-left: 15px
+                    +mq(737px, max)
+                        padding-left: 0
+.logo 
+    img,svg
+        max-width: 100%
+
+.btn
+    +rem('font-size', 14px)
+    font-weight: 700
+    padding: 13px 15px
+    text-align: center
+    text-transform: uppercase 
+    +transition(500ms)
+    &.-btn-1
+        +border(8px)
+        background-color: $yellow
+        color: $purple
+        &:hover
+            +border(0px)
+            background-color: lighten($yellow, 5%)

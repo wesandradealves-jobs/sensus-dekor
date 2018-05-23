@@ -1,0 +1,38 @@
+.footer
+    >.container
+        padding-bottom: 70px
+        >.copyright
+            align-items: center 
+            display: flex
+            flex-flow: row wrap 
+            justify-content: space-between
+            &::after,
+            &::before
+                background-color: $purple
+                content: ""
+                flex: 1
+                height: 1px
+                width: auto 
+            >img 
+                flex: 0 0 auto 
+                margin: 0 auto
+                padding: 0 30px
+        >.navigation
+            +mq(1048px, max)
+                display: none
+            >ul 
+                align-items: center
+                @extend .flex
+                flex-flow: row wrap 
+                justify-content: space-between
+                >li 
+                    align-items: center
+                    @extend .flex
+                    flex-flow: row wrap
+                    justify-content: space-between
+                    text-align: left
+                    &:last-child
+                        text-transform: initial 
+                        font-weight: bold
+                    >i 
+                        padding-right: 15px 
