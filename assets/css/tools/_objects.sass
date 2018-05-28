@@ -126,7 +126,6 @@ input
                 padding: 0 0 40%
                 +mq(768px, max)
                     display: none
-
 .modal
     align-items: center
     background-color: rgba(255,255,255,.7)
@@ -180,3 +179,33 @@ input
         p strong
             display: block
             font-family: 'Volkswagen'
+
+.lds-ellipsis
+    display: inline-block
+    position: relative
+    width: 64px
+    height: 64px
+    div 
+        position: absolute
+        top: 27px
+        width: 11px
+        height: 11px
+        border-radius: 50%
+        background: #fff
+        animation-timing-function: cubic-bezier(0, 1, 1, 0)
+        &:nth-child(1) 
+            left: 6px
+            animation: lds-ellipsis1 0.6s infinite
+        &:nth-child(2) 
+            left: 6px
+            animation: lds-ellipsis2 0.6s infinite
+        &:nth-child(3) 
+            left: 26px
+            animation: lds-ellipsis2 0.6s infinite
+        &:nth-child(4) 
+            left: 45px
+            animation: lds-ellipsis3 0.6s infinite
+
+.loader
+    @extend .modal
+    display: flex !important
