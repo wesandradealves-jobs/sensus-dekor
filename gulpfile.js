@@ -104,7 +104,7 @@ gulp.task('commons', function(){
 
 // Vendors .js generator
 gulp.task('vendors', function() {
-  return gulp.src(['node_modules/jquery/dist/jquery.js'])
+  return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/owl.carousel2/dist/owl.carousel.min.js'])
     .pipe(uglify())
     .pipe(concat('vendors.js'))
     .pipe(gulp.dest('assets/js'));
@@ -178,7 +178,6 @@ gulp.task('fonts', function() {
 gulp.task('serve', ['scripts', 'sass', 'commons', 'vendors'], function() {
     browserSync.init({
         server: './',
-        notify: false,
         open: false
     });
     gulp.watch(sassfiles, ['sass']);

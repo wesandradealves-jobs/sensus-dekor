@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>SensorDekor</title>
+    <title>SensusDekor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
@@ -16,72 +16,86 @@
     <link rel="apple-touch-icon" href="favico.png">
     <link rel="shortcut icon" type="image/png" href="favico.png">
   </head>
-  <body> 
+  <body class="pg-home"> 
     <div id="wrap">
       <header class="header">
         <div class="container">
           <h1 class="logo">
-            <a href="index.html" title="SensorDekor"><img height="59" src="assets/imgs/logo.svg" alt="SensorDekor"></a>
+            <a tabindex="0" href="#" title="SensusDekor"><img src="assets/imgs/logo.svg" alt="SensusDekor"></a>
           </h1>
-          <nav class="navigation -main">
+          <nav class="navigation">
             <ul>
+              <li><a tabindex="1" href="index.html" title="Home">Home</a></li>
+              <li><a tabindex="2" href="sobre.html" title="Sobre Nós">Sobre Nós</a></li>
               <li>
-                <a href="" title="Home">Home</a>
-              </li>
-              <li>
-                <a href="sobre.html" title="Sobre Nós">Sobre Nós</a>
-              </li>
-              <li>
-                <a href="" title="Produtos">Produtos</a>
+                <a tabindex="3" href="produtos.html" title="Produtos">Produtos</a>
                 <ul>
-                  <li>
-                    <a href="" title="Cortinas">Cortinas</a>
-                  </li>
-                  <li>
-                    <a href="" title="Toldos">Toldos</a>
-                  </li>
-                  <li>
-                    <a href="" title="Persianas">Persianas</a>
-                  </li>                                    
+                    <li><a href="" title="">Produto 1</a></li>
+                    <li><a href="" title="">Produto 2</a></li>
+                    <li><a href="" title="">Produto 3</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="" title="Contato">Contato</a>
-              </li>                               
+              <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
+              <li><a class="btn -default" tabindex="5" href="#" title="Agendar visita grátis agora!"><i class="fas fa-check"></i> Agendar visita grátis agora!</a></li>
               <li>
                   <button onclick="mobileNavigation()" type="button" class="tcon tcon-menu--xcross" aria-label="toggle menu">
                       <span class="tcon-menu__lines" aria-hidden="true"></span>
                       <span class="tcon-visuallyhidden">toggle menu</span>
                   </button>  
-              </li>                           
+              </li>  
             </ul>
           </nav>
-          <a class="btn -btn-1" href="" title="Agendar uma visita grátis agora!">Agendar uma visita grátis agora! <i class="fa fa-check"></i></a>
         </div>
       </header>
       <main class="main">
+        <div class="container">
+          <section class="home">
+              <div class="owl-carousel owl-theme owl-slideshow">
+                  <div class="item">
+                    <div class="item-column">
+                      <h2 class="item-title">
+                        <small>Nós nos preocupamos</small> Com Você
+                      </h2>
+                      <p>
+                        Para a <strong>Sensus Dekor</strong> não basta um ambiente bonito, mas sim saudável! Possuímos o selo <strong style="color: #749E0D">GREENGUARD</strong>, que é dado apenas aos produtos que são cientificamente comprovados por atender normas de emissão de químicos no ar. Ou seja, o ar dentro da sua casa está protegido, sem risco de exposição de substâncias químicas ou odores tóxicos, tornando o ambiente decorado ainda mais agradável e seguro.
+                      </p>
+                    </div>
+                    <div class="item-column" style="background-image: url(assets/imgs/garden-soil-plant-soil.jpg)"><!-- --></div>
+                  </div>
+                  <div class="item">
+                    <div class="item-column">
+                      <h2 class="item-title">
+                        <small>Nós nos preocupamos</small> Com Você
+                      </h2>
+                      <p>
+                        Para a <strong>Sensus Dekor</strong> não basta um ambiente bonito, mas sim saudável! Possuímos o selo <strong style="color: #749E0D">GREENGUARD</strong>, que é dado apenas aos produtos que são cientificamente comprovados por atender normas de emissão de químicos no ar. Ou seja, o ar dentro da sua casa está protegido, sem risco de exposição de substâncias químicas ou odores tóxicos, tornando o ambiente decorado ainda mais agradável e seguro.
+                      </p>
+                    </div>
+                    <div class="item-column" style="background-image: url(assets/imgs/garden-soil-plant-soil.jpg)"><!-- --></div>
+                  </div>                  
+              </div>            
+          </section>
+        </div>
       </main>
       <footer class="footer">
         <div class="container">
-          <div class="copyright"><img height="134" src="assets/imgs/selo_innominatum.svg" alt="Innominatum"></div>
-          <nav class="navigation -footer">
+          <p class="copyright">
+            <a href="#" title="Innominatum"><img height="70" src="assets/imgs/selo_innominatum.svg" alt="Innominatum"></a>
+          </p>
+          <nav class="navigation">
             <ul>
               <li>
-                <i><img height="40" src="assets/imgs/icon_mail.svg" alt="contato@sensusdekor.com.br"></i>
-                <span>contato@sensusdekor.com.br</span>
+                <a href="mailto:contato@sensusdekor.com.br" title="contato@sensusdekor.com.br"><i class="fas fa-envelope"></i> contato@sensusdekor.com.br</a>
               </li>
               <li>
-                <i><img height="40" src="assets/imgs/icon_face.svg" alt="/sensusdekor"></i>
-                <span>/sensusdekor</span>
+                <a target="_blank" href="" title="/sensusdekor"><i class="fab fa-facebook-f"></i> /sensusdekor</a>
               </li>
               <li>
-                <i><img height="40" src="assets/imgs/icon_tel.svg" alt="(21) 99798-3711"></i>
-                <span>(21) 99798-3711</span>
-              </li>  
-              <li>
-                <i><img height="80" src="assets/imgs/icon_rio.svg" alt="Atendemos apenas na cidade do Rio de Janeiro"></i>
-                <span>Atendemos apenas na<br/>cidade do Rio de Janeiro</span>
-              </li>        
+                <p><i class="fas fa-phone"></i> (21) 99798-3711</p>
+              </li>
+              <li class="ico-atendimento">
+                <p>Atendemos apenas na cidade do<br/>Rio de Janeiro</p>
+              </li>
             </ul>
           </nav>
         </div>

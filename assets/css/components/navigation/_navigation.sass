@@ -1,69 +1,9 @@
 .navigation
-    &:not(.-mobile)
-        >ul
-            align-items: center
-            @extend .flex
-            flex-flow: row wrap 
-            justify-content: flex-start
-            >li 
-                +rem('font-size', 14px)
-                color: $purple
-                font-weight: 300
-                text-align: center 
-                text-transform: uppercase                   
-    &.-main
-        flex: 1
-        +mq(1048px, max)
-            flex: 0 0 auto
-        >ul 
-            padding: 0 75px
-            +mq(1154px, max)
-                padding-left: 30px
-                +mq(1048px, max)
-                    padding-left: 0
-            padding-right: 0
-            >li 
-                position: relative
-                &:not(:last-child)
-                    padding-right: 40px 
-                    +mq(1154px, max)
-                        padding-right: 25px  
-                        +mq(1048px, max)
-                            display: none 
-                &:last-child
-                    display: none
-                    +mq(1048px, max)
-                        display: inline
-                &:hover
-                    >ul 
-                        @extend .flex
-                    >a 
-                        position: relative
-                        &::after
-                            content: ""
-                            background-color: $purple
-                            display: block
-                            height: 2px
-                            left: 0
-                            position: absolute 
-                            top: 100%
-                            width: 80%
-                >ul 
-                    border-left: 1px $purple solid
-                    display: none
-                    flex-flow: column wrap  
-                    top: 100%
-                    left: -11px
-                    padding: 10px 0 10px 10px
-                    position: absolute
-                    width: 100%
-                    >li 
-                        &:not(:last-child)
-                            margin-bottom: 10px
-                        text-align: left
-                        width: 100%                                 
-                        &:hover
-                            >a
-                                color: lighten($purple, 15%)
-                                font-weight: 700
-                                letter-spacing: -.01em                           
+    >ul 
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        >li 
+            color: $blue
+            +rem('font-size', 12px)
+            text-transform: uppercase             

@@ -1,38 +1,52 @@
 .footer
+    flex: 0 0 auto 
+    width: 100%
     >.container
-        padding-bottom: 70px
+        padding-bottom: 45px
         >.copyright
-            align-items: center 
-            display: flex
-            flex-flow: row wrap 
-            justify-content: space-between
+            align-items: center
+            @extend .flex
+            flex-flow: row wrap
+            justify-content: space-between 
+            width: 100%
             &::after,
             &::before
-                background-color: $purple
+                background-color: $blue
                 content: ""
                 flex: 1
                 height: 1px
-                width: auto 
-            >img 
-                flex: 0 0 auto 
-                margin: 0 auto
-                padding: 0 30px
+            >a[title="Innominatum"]
+                flex: 0 0 auto
+                padding: 0 8px
         >.navigation
-            +mq(1048px, max)
+            padding-left: 45px
+            padding-right: 45px
+            +mq(860px, max)
                 display: none
             >ul 
                 align-items: center
                 @extend .flex
                 flex-flow: row wrap 
                 justify-content: space-between
-                >li 
-                    align-items: center
-                    @extend .flex
-                    flex-flow: row wrap
-                    justify-content: space-between
-                    text-align: left
-                    &:last-child
-                        text-transform: initial 
-                        font-weight: bold
-                    >i 
-                        padding-right: 15px 
+            i
+                display: inline-block 
+                margin-right: 15px
+                vertical-align: middle
+                &[class*="fa-"]
+                    +rem('font-size', 22px)
+                    &[class*="phone"]
+                        transform: rotate(90deg)
+            .ico-atendimento
+                align-items: center
+                @extend .flex
+                flex-flow: row-wrap 
+                justify-content: space-between
+                >p 
+                    flex: 1
+                    margin-left: 15px
+                &::before
+                    background: url(assets/imgs/icon_rio.svg) center center / contain no-repeat transparent
+                    content: ""
+                    flex: 0 0 auto 
+                    height: 55px
+                    width: 55px 

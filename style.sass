@@ -1,9 +1,7 @@
 @charset "utf-8"
 
-@import 'https://use.fontawesome.com/releases/v5.0.10/css/all.css'
-
-@import './assets/css/tools/_reset'        
 @import './node_modules/sass-rem/_rem'  
+@import './assets/css/tools/_reset'        
 @import './assets/css/tools/_mixins'                       
 @import './assets/css/tools/_fonts'     
 @import './assets/css/tools/_animations'                              
@@ -15,8 +13,14 @@
 
 /* Components */
 
+@import './node_modules/owl.carousel2/dist/assets/owl.carousel.css'
+@import './node_modules/owl.carousel2/dist/assets/owl.theme.default.css'
 @import './assets/css/components/pace/_pace'    
 @import './assets/css/components/transformicons/_transformicons'
-@import './assets/css/components/header/_header' 
-@import './assets/css/components/navigation/_navigation' 
-@import './assets/css/components/footer/_footer'   
+@import './assets/css/components/navigation/_navigation'
+@import './assets/css/components/header/_header'
+@import './assets/css/components/footer/_footer'
+
+/* Pages */
+
+@import './assets/css/pages/home/_home'

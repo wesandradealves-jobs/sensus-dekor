@@ -1,25 +1,72 @@
 .header
+    flex: 0 0 auto 
+    width: 100%
+    z-index: 2
     >.container
         align-items: center
         @extend .flex
         flex-flow: row wrap 
         justify-content: space-between
-        padding-top: 70px
-        >.logo,
-        >.btn
-            flex: 0 0 auto
-            +mq(1048px, max)
-                flex: 1
-        >.btn
-            +mq(1048px, max)
-                display: none
-            >.fa 
-                border: 2px $purple solid 
-                +border(999px)
-                display: inline-block 
-                +rem(('line-height' : 22px, 'font-size' : 12px))
-                height: 25px
-                margin: -15px 0 -15px 5px
-                text-align: center
-                vertical-align: middle
-                width: 25px
+        padding-top: 45px
+        >.logo
+            flex: 0 0 auto 
+            padding-right: 45px
+        >.navigation
+            flex: 1
+            >ul
+                justify-content: flex-start 
+                position: relative
+                >li 
+                    &:not(:last-child):not(:nth-last-child(2))
+                        padding-right: 35px
+                    &:last-child,
+                    &:nth-last-child(2)
+                        margin-left: auto
+                    &:last-child
+                        display: none  
+                        +mq(768px, max)
+                            display: flex
+                    &:not(:last-child)
+                        +mq(768px, max)
+                            display: none
+                    &:hover > ul 
+                        display: block 
+                    >.btn
+                        align-items: center 
+                        @extend .flex
+                        flex-flow: row-reverse wrap
+                        justify-content: space-between
+                        .fas
+                            border: 1px $blue solid
+                            +border(999px)
+                            +rem(('line-height' : 17px, 'font-size' : 10px))
+                            margin-left: 8px
+                            text-align: center
+                            height: 19px
+                            width: 19px
+                    a:not(.btn)
+                        &::after
+                            background-color: $blue
+                            content: ""
+                            display: block
+                            left: 0 
+                            position: absolute 
+                            top: 100%
+                            +transition(500ms)
+                            height: 1px
+                            width: 0%
+                        &:hover
+                            font-weight: 800
+                            letter-spacing: -.015rem
+                            &::after
+                                width: 100%
+                    >ul 
+                        border-left: 1px $blue solid 
+                        display: none
+                        left: -9px
+                        padding: 10px 0 10px 8px
+                        position: absolute
+                        top: 100% 
+                        >li 
+                            &:not(:last-child)
+                                margin-bottom: 8px
