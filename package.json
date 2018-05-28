@@ -7,6 +7,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.23.7",
+    "date-picker": "^0.5.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-add-src": "^1.0.0",
@@ -29,7 +30,9 @@
     "imagemin-pngquant": "^5.1.0",
     "imagemin-svgo": "^6.0.0",
     "jquery": "^3.3.1",
+    "jquery-inputmask": "^1.0.1",
     "jquery-mousewheel": "^3.1.13",
+    "jquery-ui": "^1.12.1",
     "owl-carousel": "^1.0.0",
     "run-sequence": "^2.2.1",
     "sass-rem": "^2.0.1",

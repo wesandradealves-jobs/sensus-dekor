@@ -138,5 +138,27 @@
                                                         width: 100%
                                                 &+*
                                                     +mq(836px, max)
-                                                        display: none
+                                                        background-position: left center
+                                                        flex: 0 0 auto
+                                                        height: 250px
+                                                        margin-top: 45px
+                                                        padding: 0
+                                                        width: 100%
                                                     padding-left: 45px
+    .footer
+        background-color: $blue
+        margin-top: -75px
+        >.container
+            padding-top: 65px
+            >.copyright
+                &::after,
+                &::before
+                    background-color: white
+                img[alt='Innominatum']
+                    filter: invert(1)
+            >.navigation
+                .ico-atendimento::before
+                    filter: invert(1)
+                >ul 
+                    >li 
+                        color: white

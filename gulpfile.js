@@ -96,15 +96,15 @@ gulp.task('scripts', ['clean:js'], function () {
 
 // Commons .js generator
 gulp.task('commons', function(){
-  return gulp.src(['assets/**/*.js','!assets/js/commons.js','!assets/js/vendors.js'])
+  return gulp.src(['assets/**/*.js','!assets/js/commons.js','!assets/js/vendors.js', '!assets/js/jquery-ui.js'])
     .pipe(uglify())
     .pipe(concat('commons.js'))
-    .pipe(gulp.dest('assets/js'));
+    .pipe(gulp.dest('assets/js')); 
 });
 
 // Vendors .js generator
 gulp.task('vendors', function() {
-  return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/owl.carousel2/dist/owl.carousel.min.js'])
+  return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/owl.carousel2/dist/owl.carousel.min.js', 'assets/js/jquery-ui.js', 'node_modules/jquery-ui/ui/i18n/datepicker-pt-BR.js', 'node_modules/jquery-inputmask/index.js'])
     .pipe(uglify())
     .pipe(concat('vendors.js'))
     .pipe(gulp.dest('assets/js'));
