@@ -119,12 +119,6 @@ gulp.task('js-dist', function() {
 // Copy favico to dist
 gulp.task('favico', function() {
     return gulp.src(['./.ico','./favico.*'])
-        .pipe(imagemin({
-            plugins: [
-                imageminJpegtran(),
-                imageminPngquant({quality: '65-80'})
-            ]          
-        }))    
         .pipe(development(gulp.dest('dist')));
 });
 
@@ -137,13 +131,17 @@ gulp.task('htaccess', function() {
 // Copy and minify images to dist
 gulp.task('images', function(){
     return gulp.src(['assets/imgs/**/*.*'])
-      .pipe(imagemin({
-        plugins: [
-            imageminJpegtran(),
-            imageminPngquant({quality: '65-80'})
-        ]          
-      }))
-      .pipe(gulp.dest('dist/assets/imgs'));
+    .pipe(imagemin([
+        imagemin.jpegtran({progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
+    .pipe(gulp.dest('dist/assets/imgs'));
 });
 
 // Copy and minify html to dist
