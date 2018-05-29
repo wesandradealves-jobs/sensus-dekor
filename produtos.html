@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="favico.png">
     <link rel="shortcut icon" type="image/png" href="favico.png">
   </head>
-  <body class="pg-products"> 
+  <body class="pg-products pg-interna"> 
     <div id="wrap">
       <header class="header">
         <div class="container">
@@ -36,7 +36,7 @@
                 </ul>
               </li>
               <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
-              <li><a class="btn -default" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i> Agendar visita grátis agora!</a></li>
+              <li><a class="btn -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a></li>
               <li>
                   <button onclick="mobileNavigation()" type="button" class="tcon tcon-menu--xcross" aria-label="toggle menu">
                       <span class="tcon-menu__lines" aria-hidden="true"></span>
@@ -62,161 +62,39 @@
                     Lorem, ipsum dolor.
                   </h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
+                  <div onclick="showDetails(this)" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </div>
+                <!-- Modal -->
+                <div class="modal -product">
+                    <button onclick="closeModal()" type="button" class="close tcon tcon-transform tcon-menu--xcross" aria-label="toggle menu">
+                        <span class="tcon-menu__lines" aria-hidden="true"></span>
+                        <span class="tcon-visuallyhidden">toggle menu</span>
+                    </button>          
+                    <div class="modal-content">
+                      <p>
+                        <small>Já pensou o seu espaço desse jeito?</small>
+                        <br/><br/>
+                        <a class="btn -default -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a>
+                      </p>
+                      <div class="product-info">
+                        <div>
+                          <div class="owl-carousel owl-slideshow">
+                            <div style="background-image:url(assets/imgs/garden-soil-plant-soil.jpg)"></div>
+                            <div style="background-image:url(assets/imgs/garden-soil-plant-soil.jpg)"></div>
+                            <div style="background-image:url(assets/imgs/garden-soil-plant-soil.jpg)"></div>
+                          </div>  
+                        </div>
+                        <div>
+                            <h3 class="title">Persiana Vertical</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, officiis?</p>
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt itaque tempora doloribus eum magni nobis! Iste asperiores quas voluptatibus fuga facilis voluptas non adipisci veniam voluptate sunt vero aspernatur praesentium nemo, totam autem fugit saepe dicta delectus distinctio obcaecati iure a aut. Dolores possimus consequuntur optio quas quidem fugiat? Dolorem.
+                            </p>                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>                 
               </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>  
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>   
-              <li>
-                <div>
-                  <div class="thumbnail" style="background-image:url()"></div>
-                  <h3 class="title">
-                    Lorem, ipsum dolor.
-                  </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatibus!</p>
-                </div>
-              </li>                                                                                                                                                                                                                  
             </ul>
           </section>
         </div>
@@ -243,7 +121,7 @@
             </ul>
           </nav>
         </div>
-      </footer>
+      </footer>     
     </div> 
     <script defer src="assets/js/vendors.js"></script>
     <noscript>Seu Navegador pode não aceitar javascript.</noscript>

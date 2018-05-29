@@ -47,6 +47,12 @@ input
         >.container
             padding-top: 45px
             padding-bottom: 45px
+
+.pg-interna
+    #wrap 
+        >.main 
+            z-index: 3
+            
 .logo 
     img,svg
         height: 45px
@@ -70,6 +76,21 @@ input
         padding-top: 20px
         padding-bottom: 20px
         text-transform: uppercase
+    &.-check
+        align-items: center 
+        @extend .flex
+        flex-flow: row-reverse wrap
+        justify-content: space-between
+        >span 
+            margin: 0 auto 
+        .fas
+            border: 1px $blue solid
+            +border(999px)
+            +rem(('line-height' : 17px, 'font-size' : 10px))
+            margin-left: 8px
+            text-align: center
+            height: 19px
+            width: 19px            
 
 .section-header
     text-transform: uppercase
@@ -108,12 +129,10 @@ input
     >div 
         flex: 0 0 auto
         padding-right: 45px 
-        width: 60%
-        +mq(890px, max)
-            width: 50%!important
-            +mq(768px, max)
-                padding-right: 0
-                width: 100%!important
+        width: 50%
+        +mq(768px, max)
+            padding-right: 0
+            width: 100%!important
         >p 
             +rem(('font-size' : 14px, 'line-height' : 22px))
         &+div 
@@ -130,81 +149,76 @@ input
     align-items: center
     background-color: rgba(255,255,255,.7)
     color: $blue
-    display: none 
-    &.-toggle
-        @extend .flex
+    @extend .flex
+    // display: none 
+    // &.-toggle
+    //     @extend .flex
     flex-flow: column wrap 
     justify-content: center 
     left: 0 
     min-height: 100vh
     padding: 30px
     position: fixed
+    text-transform: uppercase
+    text-align: center
     top: 0
     width: 100%
     z-index: 100
     >.modal-content
-        max-width: 768px
         width: 100%
     >.close
         color: $blue
-        &:hover
-            color: $yellow
-            transform: rotate(180deg)
         display: block 
-        +rem('font-size', 50px)
         padding: inherit
         position: absolute
-        +transition(500ms) 
         top: 0
         right: 0
-    &.-agenda-message
-        text-transform: uppercase
-        text-align: center
-        .agenda-message-logo
-            +rem('font-size', 12px)
-            margin: 45px auto
-            img 
-                display: block
-                margin: 0 auto 15px
-        .title
-            +rem('font-size', 30px)
-            &+p
-                margin: 20px auto 0
-                +rem('font-size', 16px)
-        p
+    .title
+        +rem('font-size', 30px)
+        &+p
             +rem('font-size', 16px)
-            small 
-                font-size: 70%
-        .title,
-        p strong
-            display: block
-            font-family: 'Volkswagen'
+    p
+        +rem('font-size', 16px)
+        small 
+            font-size: 70%
+    .message-logo
+        display: block
+        >span 
+            display: inherit
+    .title,
+    p strong
+        display: block
+        font-family: 'Volkswagen'
+    .btn
+        max-width: 280px
+        margin: 0 auto
 
 .lds-ellipsis
-    display: inline-block
+    cursor: pointer
+    display: block
+    height: 9px
+    margin: 15px auto 0
     position: relative
-    width: 64px
-    height: 64px
+    width: 75px
     div 
         position: absolute
-        top: 27px
-        width: 11px
-        height: 11px
+        width: 9px
+        height: 9px
         border-radius: 50%
-        background: #fff
+        background: lightgray
         animation-timing-function: cubic-bezier(0, 1, 1, 0)
         &:nth-child(1) 
             left: 6px
-            animation: lds-ellipsis1 0.6s infinite
+            animation: lds-ellipsis1 0.9s infinite
         &:nth-child(2) 
             left: 6px
-            animation: lds-ellipsis2 0.6s infinite
+            animation: lds-ellipsis2 0.9s infinite
         &:nth-child(3) 
             left: 26px
-            animation: lds-ellipsis2 0.6s infinite
+            animation: lds-ellipsis2 0.9s infinite
         &:nth-child(4) 
             left: 45px
-            animation: lds-ellipsis3 0.6s infinite
+            animation: lds-ellipsis3 0.9s infinite
 
 .loader
     @extend .modal

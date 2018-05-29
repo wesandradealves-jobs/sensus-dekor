@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="favico.png">
     <link rel="shortcut icon" type="image/png" href="favico.png">
   </head>
-  <body class="pg-booking"> 
+  <body class="pg-booking pg-interna"> 
     <div id="wrap">
       <header class="header">
         <div class="container">
@@ -36,7 +36,7 @@
                 </ul>
               </li>
               <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
-              <li><a class="btn -default" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i> Agendar visita grátis agora!</a></li>
+              <li><a class="btn -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a></li>
               <li>
                   <button onclick="mobileNavigation()" type="button" class="tcon tcon-menu--xcross" aria-label="toggle menu">
                       <span class="tcon-menu__lines" aria-hidden="true"></span>
@@ -117,23 +117,27 @@
           </nav>
         </div>
       </footer>
-      <!-- Messages -->
-      <div class="modal -agenda-message">
-        <a class="close" href="javascript:void(0)" onclick="closeModal()">
-          <i class="fas fa-times"></i>
-        </a>
+      <!-- Modal -->
+      <div class="modal">
+        <button onclick="closeModal()" type="button" class="close tcon tcon-transform tcon-menu--xcross" aria-label="toggle menu">
+            <span class="tcon-menu__lines" aria-hidden="true"></span>
+            <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>          
         <div class="modal-content">
           <div>
             <h3 class="title">
               Obrigado pela Confiança
             </h3>
+            <br/>
             <p>
               Em breve a nossa equipe entrará em contato para confirmar a visita
             </p>          
           </div>
-          <p class="agenda-message-logo">
+          <p class="message-logo">
+            <br/><br/>
             <img height="75" src="assets/imgs/logo_msg.svg" alt="Atenciosamente - Equipe SensusDekor" />
-            Atenciosamente<br/>Equipe SensusDekor
+            <span>Atenciosamente<br/>Equipe SensusDekor</span>
+            <br/><br/>
           </p>
           <div>
             <p>
