@@ -76,6 +76,9 @@ input
         padding-top: 20px
         padding-bottom: 20px
         text-transform: uppercase
+        &:hover
+            background-color: $yellow
+            border-color: transparent
     &.-check
         align-items: center 
         @extend .flex
@@ -94,7 +97,10 @@ input
 
 .section-header
     text-transform: uppercase
+    +mq(768px, max)
+        text-align: center
     >.title
+        color: $blue
         +rem('font-size', 30px)
         font-family: 'Volkswagen'
         margin-bottom: 10px
@@ -135,6 +141,7 @@ input
             width: 100%!important
         >p 
             +rem(('font-size' : 14px, 'line-height' : 22px))
+            text-align: justify
         &+div 
             flex: 1
             padding-right: 0
