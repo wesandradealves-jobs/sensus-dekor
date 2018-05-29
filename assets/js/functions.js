@@ -15,11 +15,11 @@ function showDetails(e){
 }
 function fullCarousel(){
     if($(window).width() <= 736){
-        $(".owl-carousel").css('max-width', '100%');
+        $(".pg-products .owl-carousel").css('max-width', '100%');
     }    
 }
 $(document).ready(function () {
-    $(".owl-carousel").css('max-width', '422px');
+    $(".pg-products .owl-carousel").css('max-width', '422px');
     $('.owl-carousel.owl-slideshow').owlCarousel({
         loop: !1,
         margin: 0,
