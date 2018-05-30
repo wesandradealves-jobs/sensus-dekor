@@ -30,10 +30,11 @@
                             padding: 0 0px 25px
                             width: 100%
             z-index: 1
-            .title
-                +rem('font-size', 16px)
-                padding: 10px 0
-                text-align: center 
+            >div
+                >.title
+                    +rem('font-size', 16px)
+                    padding: 10px 0
+                    text-align: center 
             p 
                 +rem('font-size', 12px)
                 text-align: justify
@@ -63,16 +64,58 @@
             +rem('font-size', 16px)
         &.-product
             .product-info
-                align-items: stretch 
-                background-color: white
-                @extend .flex
-                flex-flow: row wrap 
-                justify-content: space-between  
-                max-width: 768px
-                margin: 45px auto 0 
-                +mq(812px, max)
-                    margin: 0 auto
-                +shadow(0px,0px,25px,-5px,black)
+                &.content
+                    background-color: white
+                    max-width: 768px
+                    margin: 45px auto 0
+                    @media only screen and (max-height:414px)
+                        margin: 15px auto 0
+                    +mq(480px, max)
+                        margin: 30px auto 0
+                    +mq(414px, max)
+                        margin: 15px auto 0
+                    +mq(320px, max)
+                        margin: 30px auto 0
+                    position: relative
+                    +shadow(0px,0px,25px,-5px,black)
+                    >*
+                        position: initial
+                        .title,
+                        p 
+                            text-align: left
+                            +mq(414px, max)
+                                text-align: center
+                        .title
+                            @media only screen and (max-height:414px)
+                                +rem('font-size', 14px)
+                            +mq(414px, max)
+                                +rem('font-size', 22px)
+                            &+p 
+                                @media only screen and (max-height:414px)
+                                    +rem('font-size', 12px)
+                                margin: 5px 0 15px
+                                &~p 
+                                    +rem('font-size', 10px)
+                                    @media only screen and (max-height:414px)
+                                        +rem('font-size', 9px)
+                        &:first-child
+                            min-height: 320px
+                            @media only screen and (max-height:414px)
+                                min-height: 200px
+                            +mq(360px, max)
+                                min-height: 175px
+                            +mq(320px, max)
+                                min-height: 120px
+                            padding-right: 0
+                            width: 55%
+                            +mq(414px, max)
+                                width: 100%
+                        &:last-child
+                            padding: 30px
+                            @media only screen and (max-height:320px)
+                                padding: 10px
+                            +mq(360px, max)
+                                padding: 15px
                 .owl-carousel
                     height: 100%
                     position: initial
@@ -98,8 +141,10 @@
                         right: -90px                         
                     .owl-dots
                         bottom: -45px
-                        +mq(568px, max)
-                            bottom: -25px
+                        @media only screen and (max-height:414px)
+                            bottom: -30px
+                        +mq(414px, max)
+                            bottom: -30px
                         display: block
                         left: 0 
                         margin: 0 auto 
@@ -120,44 +165,44 @@
                             &.active
                                 span 
                                     background-color: $blue                            
-                >div
-                    flex: 1
-                    min-height: 390px
-                    +mq(812px, max)
-                        min-height: 240px
-                        +mq(568px, max)
-                            min-height: 140px
-                        +mq(414px, max)
-                            min-height: 175px
-                    position: initial
-                    &:first-child
-                        flex: 0 0 auto 
-                        width: 55%  
-                        +mq(414px, max)
-                            width: 100%       
-                    &:last-child
-                        padding: 15px 30px 30px 30px    
-                *
-                    text-align: left
-                .title
-                    +rem('font-size', 25px)
-                    +mq(812px, max)
-                        +rem('font-size', 18px)
-                    +mq(568px, max)
-                        +rem('font-size', 16px)
-                    &+p 
-                        +rem('font-size', 14px)
-                        +mq(812px, max)
-                            +rem('font-size', 13px)
-                        +mq(568px, max)
-                            +rem('font-size', 11px)
-                        margin-bottom: 45px
-                        +mq(812px, max)
-                            margin-bottom: 15px
-                        &~p 
-                            text-transform: initial
-                            +rem('font-size', 12px)      
-                            +mq(812px, max)
-                                +rem('font-size', 11px)    
-                            +mq(568px, max)
-                                +rem('font-size', 10px)   
+                // >div
+                //     flex: 1
+                //     min-height: 390px
+                //     +mq(812px, max)
+                //         min-height: 240px
+                //         +mq(568px, max)
+                //             min-height: 140px
+                //         +mq(414px, max)
+                //             min-height: 175px
+                //     position: initial
+                //     &:first-child
+                //         flex: 0 0 auto 
+                //         width: 55%  
+                //         +mq(414px, max)
+                //             width: 100%       
+                //     &:last-child
+                //         padding: 15px 30px 30px 30px    
+                // *
+                //     text-align: left
+                // .title
+                //     +rem('font-size', 25px)
+                //     +mq(812px, max)
+                //         +rem('font-size', 18px)
+                //     +mq(568px, max)
+                //         +rem('font-size', 16px)
+                //     &+p 
+                //         +rem('font-size', 14px)
+                //         +mq(812px, max)
+                //             +rem('font-size', 13px)
+                //         +mq(568px, max)
+                //             +rem('font-size', 11px)
+                //         margin-bottom: 45px
+                //         +mq(812px, max)
+                //             margin-bottom: 15px
+                //         &~p 
+                //             text-transform: initial
+                //             +rem('font-size', 12px)      
+                //             +mq(812px, max)
+                //                 +rem('font-size', 11px)    
+                //             +mq(568px, max)
+                //                 +rem('font-size', 10px)   

@@ -1,0 +1,22 @@
+.pg-about
+    #wrap 
+        >.main
+            .about
+                .content
+                    >*
+                        &:first-child
+                            min-height: 480px
+                            width: 55%
+                            +mq(1024px, max)
+                                padding-right: 0
+                                width: 100%
+                    [divided]
+                        +mq(767px, max)
+                            display: block
+                            .slice
+                                display: inline-block
+                                text-align: center
+                                &:first-of-type
+                                    padding-right: 0
+                                &:last-of-type
+                                    padding-left: 0

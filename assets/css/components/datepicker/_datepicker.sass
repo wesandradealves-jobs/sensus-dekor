@@ -1,0 +1,51 @@
+.datepicker
+    border: 2px white solid
+    +border(8px)
+    +rem('font-size', 12px)
+    padding: 20px 15px 15px 15px!important     
+    .ui-datepicker-calendar
+        left: -10px
+        +mq(1280px, max)
+            left: 0
+        text-align: center 
+        width: 100%
+        thead
+            >tr 
+                >th 
+                    padding: 6px 0 3px
+        tbody
+            font-family: 'Mosk Light 300'
+    .ui-datepicker-header
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: center
+        padding: 0 7px
+        .ui-icon
+            cursor: pointer
+            +rem(('font-size' : 28px!important, 'line-height' : .4))
+        .ui-datepicker-year
+            display: none!important
+        .ui-datepicker-month
+            +rem('line-height', 0)
+            padding: 0 30px
+        >*
+            flex: 0 0 auto
+            &.ui-datepicker-prev
+                order: 1
+                top: -11px
+            &.ui-datepicker-next
+                order: 3
+                top: -11px
+                text-align: right 
+            &.ui-datepicker-title
+                order: 2
+                text-align: center
+    .ui-state-default
+        display: inline-block
+        +border(10px)
+        padding: 5px 8px
+        &[class*="active"]
+            background-color: $yellow
+            color: $blue
+            font-family: 'Volkswagen'

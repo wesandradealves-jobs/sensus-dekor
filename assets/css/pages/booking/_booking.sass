@@ -1,109 +1,48 @@
-.booking
-    >.content
-        >div 
-            width: 40%
-            +mq(990px, max)
-                padding-right: 0
-                text-align: center
-                width: 100%!important
-        #booking 
-            background-color: $blue
-            +border(20px)
-            align-items: stretch
-            @extend .flex
-            flex-flow: row wrap
-            justify-content: space-between 
-            +mq(990px, max)
-                margin-top: 45px
-            padding: 15px
-            >* 
-                flex: 0 0 auto
-                padding: 8px 
-                &:nth-child(2n+1)
-                    width: 55%
-                    +mq(990px, max)
-                        width: 100%
-                    &+*
-                        width: 45%
-                        +mq(990px, max)
-                            width: 100%
-                &:last-child
-                    width: 100%
-                >input:not(.btn), 
-                >textarea, 
-                >select, 
-                >label
-                    background-color: white
-                    +border(10px)
-                    border: 0 
-                    color: $blue
-                    display: block 
-                    font-family: 'Volkswagen'
-                    overflow: hidden 
-                    padding: 12px 
-                    resize: none
-                    +rem('font-size', 12px)
-                    width: 100%
-                    &[placeholder]
-                        color: $blue
-                    &::-moz-placeholder
-                        color: $blue
-                    &::-webkit-input-placeholder
-                        color: $blue
-                    &:-ms-input-placeholder 
-                        color: $blue
-                label 
-                    background-color: transparent
-                    color: white
-                    font-weight: 800
-                    text-align: center
-                >textarea
-                    height: 100%
-                    +mq(990px, max)
-                        height: 140px
-            .datepicker
-                @extend .btn.-btn-1
-                +rem('font-size', 12px)
-                padding: 10px
-                .ui-datepicker-calendar
-                    text-align: center 
-                    width: 100%
-                    thead
-                        >tr 
-                            >th 
-                                padding: 6px 0 3px
-                    tbody
-                        font-family: 'Mosk Light 300'
-                .ui-datepicker-header
-                    align-items: center
-                    @extend .flex
-                    flex-flow: row wrap 
-                    justify-content: center
-                    padding: 0 7px
-                    .ui-icon
-                        cursor: pointer
-                        +rem(('font-size' : 28px, 'line-height' : .4))
-                    .ui-datepicker-year
-                        display: none
-                    .ui-datepicker-month
-                        +rem('line-height', 0)
-                        margin-right: -8px
-                        padding: 0 30px
-                    >*
-                        flex: 0 0 auto
-                        &.ui-datepicker-prev
-                            order: 1
-                        &.ui-datepicker-next
-                            order: 3
-                            text-align: right 
-                        &.ui-datepicker-title
-                            order: 2
-                            text-align: center
-                .ui-state-default
-                    display: inline-block
-                    +border(10px)
-                    padding: 5px 8px
-                    &[class*="active"]
-                        background-color: $yellow
-                        color: $blue
-                        font-family: 'Volkswagen'
+.pg-booking
+    #wrap 
+        >.main
+            .booking
+                >.container
+                    >.content
+                        >*
+                            &:first-child
+                                width: 45%
+                                +mq(1280px, max)
+                                    width: 40%
+                                +mq(1180px, max)
+                                    width: 35%
+                                +mq(1080px, max)
+                                    width: 30%
+                                +mq(1024px, max)
+                                    margin-bottom: 25px
+                                    padding-right: 0
+                                    width: 100%
+                        .form
+                            padding-right: 0
+                            +mq(737px, max)
+                                +border(0px)
+                                margin: 0 -15px                                
+                            .content
+                                span 
+                                    display: block
+                                    flex: 0 0 auto
+                                    +rem('font-size', 14px)
+                                    padding: 15px 15px 0
+                                    &:nth-child(2n+2)
+                                        padding-left: 0
+                                        +mq(737px, max)
+                                            padding-left: 15px
+                                    text-align: center 
+                                    width: 50%
+                                    +mq(737px, max)
+                                        width: 100%
+                                    &:first-of-type,
+                                    &:nth-of-type(2)
+                                        padding-top: 0     
+                                    &:nth-of-type(2)
+                                        +mq(737px, max)
+                                            padding-top: 15px 
+                                    &:last-child
+                                        width: 100%     
+                                    textarea
+                                        height: 100%             

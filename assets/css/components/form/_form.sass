@@ -1,0 +1,41 @@
+.form
+    background-color: $blue
+    +border(10px)
+    color: white
+    font-family: 'Volkswagen'
+    padding-bottom: 15px
+    padding-right: 15px
+    padding-top: 15px
+    .content
+        >*
+            &:first-child
+                padding-right: 0
+    input:not(.btn), 
+    textarea, 
+    select
+        background-color: white
+        +border(10px)
+        border: 0 
+        color: $blue
+        display: block 
+        font-family: 'Volkswagen'
+        overflow: hidden 
+        padding: 12px 
+        resize: none
+        +rem('font-size', 12px)
+        width: 100%
+        &[placeholder]
+            color: $blue
+        &::-moz-placeholder
+            color: $blue
+        &::-webkit-input-placeholder
+            color: $blue
+        &:-ms-input-placeholder 
+            color: $blue    
+    textarea
+        min-height: 190px
+    span 
+        display: block
+        padding: 15px 15px 0
+        &:first-of-type
+            padding-top: 0

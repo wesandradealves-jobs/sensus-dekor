@@ -42,11 +42,10 @@ input
     overflow: hidden
     >.main
         flex: 1 
+        padding-top: 45px
+        padding-bottom: 45px
         width: 100%
         z-index: 1
-        >.container
-            padding-top: 45px
-            padding-bottom: 45px
 
 .pg-interna
     #wrap 
@@ -115,16 +114,10 @@ input
     justify-content: space-between
     >.slice
         flex: 1
-        +mq(890px, max)
-            flex: 0 0 auto
         padding-left: 15px
-        +mq(890px, max)
-            padding-left: 0
         text-align: justify
         &:first-of-type
             padding-right: 15px
-            +mq(890px, max)
-                padding-right: 0
             padding-left: 0
 
 .content
@@ -132,26 +125,16 @@ input
     @extend .flex
     flex-flow: row wrap 
     justify-content: space-between
-    >div 
-        flex: 0 0 auto
-        padding-right: 45px 
-        width: 50%
-        +mq(768px, max)
-            padding-right: 0
-            width: 100%!important
-        >p 
-            +rem(('font-size' : 14px, 'line-height' : 22px))
-            text-align: justify
-        &+div 
+    >*
+        &:first-child
+            flex: 0 0 auto 
+            padding-right: 45px
+        &:last-child
             flex: 1
-            padding-right: 0
-            &[style]
-                background-position: center center 
-                background-size: cover 
-                background-repeat: no-repeat
-                padding: 0 0 40%
-                +mq(768px, max)
-                    display: none
+        &[style]
+            background-size: cover 
+            background-repeat: no-repeat
+            background-position: center bottom 
 .modal
     align-items: center
     background-color: rgba(255,255,255,.7)
@@ -226,7 +209,3 @@ input
         &:nth-child(4) 
             left: 45px
             animation: lds-ellipsis3 0.9s infinite
-
-.loader
-    @extend .modal
-    display: flex !important
