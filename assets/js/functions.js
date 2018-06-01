@@ -41,14 +41,14 @@ $(document).ready(function () {
         lazyLoad: !0,
         navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
     });
-    $( ".pg-products .owl-carousel.owl-slideshow .owl-nav,.owl-carousel.owl-slideshow .owl-dots" ).each(function() {
+    $( ".pg-products .owl-carousel.owl-slideshow .owl-nav,.pg-products .owl-carousel.owl-slideshow .owl-dots" ).each(function() {
         $(this).wrapAll( "<div class='owl-controls' />");
     });
-    $( ".pg-products .owl-carousel.owl-slideshow .owl-nav .owl-prev, .owl-carousel.owl-slideshow .owl-nav .owl-next" ).each(function() {
+    $( ".pg-products .owl-carousel.owl-slideshow .owl-nav .owl-prev, .pg-products .owl-carousel.owl-slideshow .owl-nav .owl-next" ).each(function() {
         $(this).unwrap();
     });
-    $( "body:not(.pg-products) .owl-carousel.owl-slideshow .owl-nav,.owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
-    $( "body:not(.pg-products) .owl-carousel.owl-slideshow .owl-nav .owl-prev, .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
+    $( ".owl-carousel.owl-slideshow .owl-nav,.owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
+    $( ".owl-carousel.owl-slideshow .owl-nav .owl-prev, .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
     $( ".modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-prev, .modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-next, .modal.-product .owl-carousel.owl-slideshow .owl-dots" ).unwrap();
     $( "[divided]" ).each(function() {
         var firstSlice = $(this).text().substring(0, $(this).html().length/2),
