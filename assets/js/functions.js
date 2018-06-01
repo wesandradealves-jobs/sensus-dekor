@@ -47,6 +47,8 @@ $(document).ready(function () {
     $( ".pg-products .owl-carousel.owl-slideshow .owl-nav .owl-prev, .owl-carousel.owl-slideshow .owl-nav .owl-next" ).each(function() {
         $(this).unwrap();
     });
+    $( "body:not(.pg-products) .owl-carousel.owl-slideshow .owl-nav,.owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
+    $( "body:not(.pg-products) .owl-carousel.owl-slideshow .owl-nav .owl-prev, .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
     $( ".modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-prev, .modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-next, .modal.-product .owl-carousel.owl-slideshow .owl-dots" ).unwrap();
     $( "[divided]" ).each(function() {
         var firstSlice = $(this).text().substring(0, $(this).html().length/2),
