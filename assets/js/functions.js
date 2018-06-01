@@ -1,13 +1,21 @@
 function mobileNavigation(){
-    $(".tcon").toggleClass("tcon-transform")
-    if($(".tcon").is(".tcon-transform")){
-        $(".navigation.-mobile").addClass("-active");
+    $(".header .tcon").toggleClass("tcon-transform")
+    if($(".header .tcon").is(".tcon-transform")){
+        $(".navigation.-mobile").addClass("-active")
     } else {
-        $(".navigation.-mobile").removeClass("-active");
+        $(".navigation.-mobile").removeClass("-active")
     }
 } 
+function closeMenu(){
+    $(".header .tcon").toggleClass("tcon-transform")
+    if($(".header .tcon").is(".tcon-transform")){
+        $(".navigation.-mobile").addClass("-active")
+    } else {
+        $(".navigation.-mobile").removeClass("-active")
+    }    
+}
 function closeModal(){
-    $(".modal").fadeOut()
+    $(".modal").not(".navigation").fadeOut()
 }
 function showDetails(e){
     var el = $(e);

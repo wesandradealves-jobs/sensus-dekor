@@ -1,9 +1,66 @@
 .navigation
-    >ul 
-        align-items: center
-        @extend .flex
-        flex-flow: row wrap 
-        >li 
-            color: $blue
-            +rem('font-size', 12px)
-            text-transform: uppercase             
+    &.-mobile
+        display: none
+        &.-active
+            @extend .flex
+        >.modal-content
+            align-items: stretch 
+            @extend .flex
+            max-width: 320px
+            margin: 0 auto
+            flex-flow: row wrap 
+            justify-content: space-between
+            >div
+                flex: 0 0 auto 
+                width: 50%
+                &:first-child
+                    >ul 
+                        text-align: left
+                        >li 
+                            >ul 
+                                margin-top: 15px
+                                >li 
+                                    &::before
+                                        content: "\0025cf"
+                                        display: inline-block 
+                                        margin-top: -5px
+                                        margin-left: -18px
+                                        padding-right: 8px
+                                        vertical-align: middle 
+                                    &:not(:last-child)
+                                        margin-bottom: 15px
+                >ul 
+                    @extend .flex
+                    flex-flow: column wrap 
+                    height: 100%
+                    justify-content: space-between
+                    >li 
+                        &:not(:last-child)
+                            margin-bottom: 15px
+                        width: 100%
+                        .shortcuts
+                            background-color: $blue
+                            +border(999px)
+                            color: white 
+                            display: block
+                            line-height: 35px 
+                            margin: 0 auto
+                            height: 35px
+                            width: 35px 
+                        .btn
+                            font-family: 'Volkswagen'
+                            +rem('font-size', 14px)
+                            +mq(414px, max)
+                                +rem('font-size', 10px)
+                            width: 100%
+                        p 
+                            font-family: 'Volkswagen'
+    &:not(.-mobile)
+        >ul 
+            align-items: center
+            @extend .flex
+            flex-flow: row wrap 
+            >li 
+                color: $blue
+                +rem('font-size', 12px)
+                text-transform: uppercase             
