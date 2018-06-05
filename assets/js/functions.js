@@ -47,8 +47,8 @@ $(document).ready(function () {
     $( ".pg-products .owl-carousel.owl-slideshow .owl-nav .owl-prev, .pg-products .owl-carousel.owl-slideshow .owl-nav .owl-next" ).each(function() {
         $(this).unwrap();
     });
-    $( ".owl-carousel.owl-slideshow .owl-nav,.owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
-    $( ".owl-carousel.owl-slideshow .owl-nav .owl-prev, .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
+    $( "body:not(.pg-products) .owl-carousel.owl-slideshow .owl-nav,body:not(.pg-products) .owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
+    $( "body:not(.pg-products) .owl-carousel.owl-slideshow .owl-nav .owl-prev,body:not(.pg-products)  .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
     $( ".modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-prev, .modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-next, .modal.-product .owl-carousel.owl-slideshow .owl-dots" ).unwrap();
     $( "[divided]" ).each(function() {
         var firstSlice = $(this).text().substring(0, $(this).html().length/2),
@@ -67,8 +67,12 @@ $(document).ready(function () {
     $(window).on("resize", function () {
         fullCarousel();
     });
-    // window.sr = ScrollReveal();
-    // sr.reveal('.product', { duration: 2000 }, 50);    
+    var ps = new PerfectScrollbar('.products-list-holder');
+    $( ".products-list" ).hover(function() {
+        $(this).find(".degrade-bg").fadeOut()
+    }, function() {
+        $(this).find(".degrade-bg").fadeIn()
+    });    
 });
       
       

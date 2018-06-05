@@ -10,6 +10,27 @@
             +mq(568px, max)
                 margin: 25px 0 -25px
         position: relative
+        .degrade-bg
+            background: rgb(2,0,36)
+            background: -moz-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 35%, #FFF 100%)
+            background: -webkit-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 35%, #FFF 100%)
+            background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 35%, #FFF 100%)
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1)                
+            bottom: 0
+            display: block 
+            height: 100%
+            left: 0
+            position: absolute
+            width: 100%        
+            z-index: 2
+        &:hover::after
+            right: -100%
+            opacity: 0
+        &-holder
+            height: 480px
+            overflow-x: hidden
+            padding-right: 60px
+            position: relative
         &.-bottom::after
             bottom: -100% 
         >*

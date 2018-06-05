@@ -3,13 +3,28 @@
         >.main
             .about
                 .content
+                    flex-flow: initial
                     >*
                         &:first-child
-                            min-height: 480px
                             width: 55%
-                            +mq(1024px, max)
+                            +mq(1280px, max)
                                 padding-right: 0
                                 width: 100%
+                                &+div 
+                                    display: none
+                    .about-img
+                        align-items: center
+                        background-color: $blue
+                        @extend .flex
+                        margin-right: -100vw
+                        >img, 
+                        >svg 
+                            filter: contrast(10) grayscale(1) invert(0)
+                            height: 350px
+                            left: 250px
+                            +mq(1440px, max)
+                                left: 15vw
+                            opacity: .3
                     [divided]
                         +mq(767px, max)
                             display: block
