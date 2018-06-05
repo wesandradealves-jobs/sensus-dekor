@@ -4,6 +4,13 @@
             .booking
                 >.container
                     >.content
+                        .-submit
+                            display: block 
+                            padding: 15px 15px 0                       
+                        .section-header
+                            &+p 
+                                +mq(768px, max)
+                                    display: none
                         >*
                             &:first-child
                                 width: 45%
@@ -19,29 +26,71 @@
                                     width: 100%
                         .form
                             padding-right: 0
-                            +mq(737px, max)
+                            padding-top: 0
+                            +mq(860px, max)
                                 +border(0px)
                                 margin: 0 -15px                                
                             .content
+                                flex-flow: row wrap
+                                +mq(737px, max)
+                                    flex-flow: column wrap 
+                                justify-content: space-between
+                                .disabled
+                                    display: none!important
+                                .owl-stage,
+                                .owl-outer,
+                                .owl-item
+                                    +mq(737px,max)
+                                        height: 100%
+
+                                .owl-dots
+                                    display: block 
+                                    margin-top: 15px
+                                    text-align: center 
+                                    >div 
+                                        display: inline-block
+                                        height: 15px
+                                        margin: 0 3px 
+                                        padding: 0
+                                        vertical-align: middle 
+                                        width: 15px
+                                        >span 
+                                            background-color: white 
+                                            +border(999px)
+                                            display: block 
+                                            padding: 0
+                                            height: inherit
+                                            width: inherit
+                                        &.active
+                                            >span
+                                                background-color: $yellow
+                                >div 
+                                    @extend .flex
+                                    flex-flow: column wrap 
+                                    justify-content: flex-start
+                                    flex: 1
+                                    +mq(737px, max)
+                                        display: block 
+                                        flex-flow: initial
+                                    &:last-child
+                                        padding: 0
+                                        +mq(738px, min)
+                                            >span 
+                                                padding-left: 0                                        
+                                    width: 50%
+                                    +mq(737px, max)
+                                        max-width: 100%
+                                        width: 100%
                                 span 
+                                    &.-fill
+                                        flex: 1
                                     display: block
                                     flex: 0 0 auto
                                     +rem('font-size', 14px)
                                     padding: 15px 15px 0
-                                    &:nth-child(2n+2)
-                                        padding-left: 0
-                                        +mq(737px, max)
-                                            padding-left: 15px
-                                    text-align: center 
-                                    width: 50%
                                     +mq(737px, max)
-                                        width: 100%
-                                    &:first-of-type,
-                                    &:nth-of-type(2)
-                                        padding-top: 0     
-                                    &:nth-of-type(2)
-                                        +mq(737px, max)
-                                            padding-top: 15px 
+                                        padding: 15px
+                                    text-align: center 
                                     &:last-child
                                         width: 100%     
                                     textarea

@@ -44,6 +44,8 @@ input
         flex: 1 
         padding-top: 45px
         padding-bottom: 45px
+        +mq(860px, max)
+            padding-bottom: 0
         width: 100%
         z-index: 1
 
@@ -98,8 +100,6 @@ input
 
 .section-header
     text-transform: uppercase
-    +mq(768px, max)
-        text-align: center
     >.title
         color: $blue
         +rem('font-size', 30px)
@@ -133,23 +133,28 @@ input
             padding-right: 45px
         &:last-child
             flex: 1
+            +mq(737px, max)
+                max-width: 100%                                        
+                width: 100%               
         &[style]
             background-size: cover 
             background-repeat: no-repeat
             background-position: center bottom 
 .modal
     align-items: center
-    background-color: rgba(255,255,255,.7)
+    background-color: rgba(255,255,255,.95)
     color: $blue
     @extend .flex
     // display: none 
     // &.-toggle
     //     @extend .flex
     flex-flow: column wrap 
-    justify-content: center 
+    justify-content: flex-start 
     left: 0 
     min-height: 100vh
     padding: 30px
+    @media only screen and (max-height:414px)
+        padding-top: 25px
     position: fixed
     text-transform: uppercase
     text-align: center
@@ -161,7 +166,7 @@ input
     >.close
         color: $blue
         display: block 
-        padding: inherit
+        padding: 15px
         position: absolute
         top: 0
         right: 0

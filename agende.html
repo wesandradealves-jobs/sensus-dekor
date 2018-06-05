@@ -105,34 +105,41 @@
               </div>
               <div>
                 <form id="booking" class="form">
-                  <div class="content">
-                    <span><input required type="text" placeholder="Como prererem que te chamem?" /></span>
-                    <span><input required class="phone" type="text" placeholder="Qual telefone para entrarmos em contato?" /></span>
-                    <span><input required type="text" placeholder="Qual o endereço do espaço a ser transformado?" /></span>
-                    <span>
-                      <select required name="" id="">
-                        <option value="">Qual é o melhor horário de atendimento?</option>
-                        <option value="">Manhã</option>
-                        <option value="">Tarde</option>
-                        <option value="">Noite</option>
-                      </select>
-                    </span>
-                    <span>
-                      <input required type="email" placeholder="Em qual e-mail podemos confirmar a visita?" />
-                    </span>
-                    <span>
-                      <label for="" class="label">Qual o melhor dia para a nossa visita?</label>
-                    </span>
-                    <span>
-                      <textarea required name="" id="" placeholder="Tem alguma dúvida ou observação que ache importante? Deixe aqui!"></textarea>
-                    </span>
-                    <span>
-                      <span class="datepicker"></span>
-                    </span>
-                    <span>
-                      <input class="btn -btn-1" type="submit" value="Agendar Agora!" />  
-                    </span>                    
+                  <div class="content owl-carousel owl-forms">
+                    <div>
+                      <span><input required type="text" placeholder="Como prererem que te chamem?" /></span>
+                      <span><input required type="text" placeholder="Qual o endereço do espaço a ser transformado?" /></span>
+                      <span>
+                        <input required type="email" placeholder="Em qual e-mail podemos confirmar a visita?" />
+                      </span>     
+                      <span class="-fill">
+                        <textarea required name="" id="" placeholder="Tem alguma dúvida ou observação que ache importante? Deixe aqui!"></textarea>
+                      </span>              
+                    </div>
+                    <div>
+                      <span><input required class="phone" type="text" placeholder="Qual telefone para entrarmos em contato?" /></span>
+                      <span>
+                        <select required name="" id="">
+                          <option value="">Qual é o melhor horário de atendimento?</option>
+                          <option value="">Manhã</option>
+                          <option value="">Tarde</option>
+                          <option value="">Noite</option>
+                        </select>
+                      </span>
+                      <span>
+                        <label for="" class="label">Qual o melhor dia para a nossa visita?</label>
+                      </span>
+                      <span class="-fill">
+                        <span class="datepicker"></span>
+                      </span>
+                      <!-- <span class="-submit -mobile">
+                        <input class="btn -btn-1" type="submit" value="Agendar Agora!" />  
+                      </span>                         -->
+                    </div>                  
                   </div>
+                  <div class="-submit">
+                    <input class="btn -btn-1" type="submit" value="Agendar Agora!" />  
+                  </div>                        
                 </form>
               </div>
             </div>            

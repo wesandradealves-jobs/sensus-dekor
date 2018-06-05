@@ -13,8 +13,8 @@
                                     width: 100%
                         .section-header
                             &+p 
-                                +mq(767px, max)
-                                    text-align: center
+                                +mq(737px, max)
+                                    display: none
                         .form
                             +mq(767px, max)
                                 +border(0px)
@@ -41,6 +41,8 @@
                                         flex-flow: column wrap 
                                         justify-content: space-between
                                         >p 
+                                            +mq(737px, max)
+                                                display: none
                                             width: 100%
                                         >.contact-ways
                                             +mq(815px, max)
