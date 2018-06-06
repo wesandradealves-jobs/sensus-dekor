@@ -27,18 +27,15 @@ function fullCarousel(){
     }    
 }
 $(document).ready(function () {
-    $(".pg-products .owl-carousel").css('max-width', '422px');
+    // $(".pg-products .owl-carousel").css('max-width', '568px');
     $('.owl-carousel.owl-slideshow').owlCarousel({
-        loop: !1,
-        margin: 0,
+        loop:true,
+        center:false,
+        autoWidth:false,
+        margin:3,
+        nav:true,
+        dots:true,
         items: 1,
-        itemsDesktop: !1,
-        itemsDesktopSmall: !1,
-        itemsTablet: !1,
-        itemsMobile: !1,
-        nav: !0,
-        dots: !0,
-        lazyLoad: !0,
         navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
     });
     var owl = $('.owl-carousel.owl-forms'),
