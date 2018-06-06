@@ -25,13 +25,32 @@
                             +mq(1440px, max)
                                 left: 15vw
                             opacity: .3
-                    [divided]
-                        +mq(767px, max)
-                            display: block
-                            .slice
-                                display: inline-block
-                                text-align: center
+                    .owl-carousel.owl-paragraphs
+                        .owl-dots
+                            text-align: center
+                            >div 
+                                display: inline-block 
+                                margin: 15px 8px
+                                vertical-align: middle 
+                                >span 
+                                    +border(999px)
+                                    background-color: gray
+                                    display: block
+                                    height: 19px
+                                    width: 19px
+                                &.active
+                                    >span 
+                                        background-color: $blue
+                        &.off
+                            align-items: stretch 
+                            @extend .flex
+                            flex-flow: row wrap 
+                            justify-content: space-between
+                            >*
+                                flex: 1
+                                padding-left: 20px
+                                +rem(('font-size' : 14px, 'line-height' : 22px))
+                                text-align: justify
                                 &:first-of-type
-                                    padding-right: 0
-                                &:last-of-type
+                                    padding-right: 20px
                                     padding-left: 0

@@ -42,28 +42,28 @@ $(document).ready(function () {
         navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
     });
     var owl = $('.owl-carousel.owl-forms'),
+        owlParagraphs = $('.owl-carousel.owl-paragraphs'),
+        owlParagraphsOptions = {
+            loop: false,
+            items: 1,
+            dots: true,
+            nav: false,
+            margin: 30
+        },        
         owlOptions = {
             loop: false,
             items: 1,
             dots: true,
             nav: false,
             margin: 15
-            // loop: false,
-            // margin: 0,
-            // items: 1,
-            // itemsDesktop: !1,
-            // itemsDesktopSmall: !1,
-            // itemsTablet: !1,
-            // itemsMobile: !1,
-            // dots: true,
-            // lazyLoad: !0,
-            // navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
         };
 
     if ( $(window).width() <= 737 ) {
-        var owlActive = owl.owlCarousel(owlOptions);
+        var owlActive = owl.owlCarousel(owlOptions),
+            owlParagraphsActive = owlParagraphs.owlCarousel(owlParagraphsOptions);
     } else {
         owl.addClass('off');
+        owlParagraphs.addClass('off');
     }
 
     $( ".pg-products .owl-carousel.owl-slideshow .owl-nav,.pg-products .owl-carousel.owl-slideshow .owl-dots" ).each(function() {
@@ -72,14 +72,9 @@ $(document).ready(function () {
     $( ".pg-products .owl-carousel.owl-slideshow .owl-nav .owl-prev, .pg-products .owl-carousel.owl-slideshow .owl-nav .owl-next" ).each(function() {
         $(this).unwrap();
     });
-    $( "body:not(.pg-products):not(.pg-booking) .owl-carousel.owl-slideshow .owl-nav,body:not(.pg-products):not(.pg-booking) .owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
-    $( "body:not(.pg-products):not(.pg-booking) .owl-carousel.owl-slideshow .owl-nav .owl-prev,body:not(.pg-products):not(.pg-booking)  .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
+    $( "body:not(.pg-products):not(.pg-booking):not(.pg-about) .owl-carousel.owl-slideshow .owl-nav,body:not(.pg-products):not(.pg-booking):not(.pg-about) .owl-carousel.owl-slideshow .owl-dots" ).wrapAll( "<div class='owl-controls' />");
+    $( "body:not(.pg-products):not(.pg-booking):not(.pg-about) .owl-carousel.owl-slideshow .owl-nav .owl-prev,body:not(.pg-products):not(.pg-booking):not(.pg-about)  .owl-carousel.owl-slideshow .owl-nav .owl-next" ).unwrap();    
     $( ".modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-prev, .modal.-product .owl-carousel.owl-slideshow .owl-nav .owl-next, .modal.-product .owl-carousel.owl-slideshow .owl-dots" ).unwrap();
-    $( "[divided]" ).each(function() {
-        var firstSlice = $(this).text().substring(0, $(this).html().length/2),
-            exceededSlice = $(this).text().substring($(this).html().length/2);
-        $(this).html('<span class="slice">'+firstSlice+'</span><span class="slice">'+exceededSlice+'</span>')
-    });
     $(".phone").mask("(999) 9999-9999");
     $( ".datepicker" ).datepicker({
         prevText: "<",
@@ -92,14 +87,19 @@ $(document).ready(function () {
     $(window).on("resize", function () {
         fullCarousel();
         if ( $(window).width() <= 737 ) {
-            if ( $('.owl-carousel.owl-forms').hasClass('off') ) {
-                var owlActive = owl.owlCarousel(owlOptions);
+            if ( $('.owl-carousel').hasClass('off') ) {
+                var owlActive = owl.owlCarousel(owlOptions),
+                    owlParagraphsActive = owl.owlCarousel(owlParagraphsOptions);
                 owl.removeClass('off');
+                owlParagraphs.removeClass('off');
             }
+            window.location.href = window.location.href;
         } else {
-            if ( !$('.owl-carousel.owl-forms').hasClass('off') ) {
+            if ( !$('.owl-carousel').hasClass('off') ) {
                 owl.addClass('off').trigger('destroy.owl.carousel');
+                owlParagraphs.addClass('off').trigger('destroy.owl.carousel');
                 owl.find('.owl-stage-outer').children(':eq(0)').unwrap();
+                owlParagraphs.find('.owl-stage-outer').children(':eq(0)').unwrap();
             }
         }        
     });
