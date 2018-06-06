@@ -27,7 +27,6 @@ function fullCarousel(){
     }    
 }
 $(document).ready(function () {
-    // $(".pg-products .owl-carousel").css('max-width', '568px');
     $('.owl-carousel.owl-slideshow').owlCarousel({
         loop:true,
         center:false,
@@ -101,7 +100,7 @@ $(document).ready(function () {
         }        
     });
     var ps = new PerfectScrollbar('.products-list-holder');
-    $( ".products-list" ).hover(function() {
+    $( ".products" ).hover(function() {
         $(this).find(".degrade-bg").fadeOut()
     }, function() {
         $(this).find(".degrade-bg").fadeIn()
