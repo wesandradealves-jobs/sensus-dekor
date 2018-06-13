@@ -85,7 +85,8 @@
                                     display: block
                                     flex: 0 0 auto
                                     +rem('font-size', 14px)
-                                    padding: 15px 15px 0
+                                    &:not([title])
+                                        padding: 15px 15px 0
                                     +mq(737px, max)
                                         padding: 15px
                                     text-align: center 
