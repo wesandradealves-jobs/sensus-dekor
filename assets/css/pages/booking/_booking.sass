@@ -38,7 +38,7 @@
                                 .owl-item
                                     +mq(737px,max)
                                         height: 100%
-
+    
                                 .owl-dots
                                     display: block 
                                     margin-top: 15px
@@ -82,10 +82,25 @@
                                         flex: 1
                                         +mq(737px, max)
                                             flex: 0 0 auto
+                                    &.-date-mobile
+                                        background-color: white 
+                                        +border(10px)
+                                        margin: 15px 14px 0
+                                        padding: 12px
+                                        >* 
+                                            display: inline-block 
+                                            vertical-align: middle 
+                                            width: auto
+                                        >label
+                                            color: $blue
+                                            +rem('font-size', 10px)
+                                        >input
+                                            background-color: transparent 
+                                            padding: 0
                                     display: block
                                     flex: 0 0 auto
                                     +rem('font-size', 14px)
-                                    &:not([title])
+                                    &:not([title]):not(.-date-mobile)
                                         padding: 15px 15px 0
                                     +mq(737px, max)
                                         padding: 15px

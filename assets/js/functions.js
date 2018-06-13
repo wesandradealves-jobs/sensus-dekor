@@ -44,14 +44,14 @@ $(document).ready(function () {
             items: 1,
             dots: true,
             nav: false,
-            margin: 30
+            margin: 30         
         },        
         owlOptions = {
             loop: false,
             items: 1,
             dots: true,
             nav: false,
-            margin: 15
+            margin: 15            
         };
 
     if ( $(window).width() <= 737 ) {
