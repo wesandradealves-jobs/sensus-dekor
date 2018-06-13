@@ -2,6 +2,9 @@
     &.-mobile
         background-color: rgba(255,255,255, 1)
         display: none
+        &.modal
+            +mq(737px, max)
+                padding-top: 15px
         &.-active
             @extend .flex
             justify-content: center

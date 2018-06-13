@@ -140,6 +140,8 @@ input
     left: 0 
     min-height: 100vh
     padding: 140px 30px 30px 30px
+    +mq(737px, max)
+        padding: 100px 30px 30px 30px
     @media only screen and (max-height:414px)
         padding-top: 25px
     position: fixed
@@ -156,6 +158,8 @@ input
         padding: 15px
         position: absolute
         top: 45px
+        +mq(737px, max)
+            top: 15px
         right: 0
         z-index: 10
     .title
@@ -207,3 +211,17 @@ input
 
 .ps__rail-y
     left: initial!important
+
+.mobile-phrase
+    display: none
+    font-family: 'Volkswagen'
+    margin-bottom: 8px
+    >strong 
+        color: orange
+        text-transform: uppercase
+    +mq(737px, max)
+        display: block 
+
+.main-text
+    +mq(737px, max)
+        display: none

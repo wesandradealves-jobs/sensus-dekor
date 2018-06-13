@@ -6,11 +6,13 @@
                     >.content
                         .-submit
                             display: block 
-                            padding: 15px 15px 0                       
-                        .section-header
-                            &+p 
-                                +mq(768px, max)
+                            &.-mobile
+                                +mq(769px, min)
                                     display: none
+                            &.-desktop
+                                +mq(768px, max)
+                                    display: none 
+                            padding: 15px 15px 0    
                         >*
                             &:first-child
                                 width: 45%
@@ -84,6 +86,8 @@
                                 span 
                                     &.-fill
                                         flex: 1
+                                        +mq(737px, max)
+                                            flex: 0 0 auto
                                     display: block
                                     flex: 0 0 auto
                                     +rem('font-size', 14px)
