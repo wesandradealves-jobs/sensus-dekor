@@ -15,11 +15,12 @@ function closeMenu(){
     }    
 }
 function closeModal(){
-    $(".modal").not(".navigation").fadeOut()
+    $(".modal").not(".navigation").fadeOut(),
+    $(".-toggle").removeClass("-toggle");
 }
 function showDetails(e){
     var el = $(e);
-    $(e).parent().next().fadeIn()
+    $(e).parent().next().addClass("-toggle");
 }
 function fullCarousel(){
     if($(window).width() <= 736){
