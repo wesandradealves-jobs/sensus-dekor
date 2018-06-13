@@ -15,7 +15,7 @@ function closeMenu(){
     }    
 }
 function closeModal(){
-    $(".modal").not(".navigation").fadeOut(),
+    $(".modal:not(.navigation):not(.-product)").fadeOut(),
     $(".-toggle").removeClass("-toggle");
 }
 function showDetails(e){
@@ -28,18 +28,21 @@ function fullCarousel(){
     }    
 }
 $(document).ready(function () {
-    $('.owl-carousel.owl-slideshow').owlCarousel({
-        loop:true,
-        center:false,
-        autoWidth:false,
-        margin:3,
-        nav:true,
-        dots:true,
-        items: 1,
-        navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
-    });
     var owl = $('.owl-carousel.owl-forms'),
+        owlSlide = $('.owl-carousel.owl-slideshow'),
         owlParagraphs = $('.owl-carousel.owl-paragraphs'),
+        owlSlideOptions = {
+            loop:false,
+            center:false,
+            autoWidth:false,
+            margin: 0,
+            nav:true,
+            dots:true,
+            items: 1,
+            URLhashListener:true,
+            startPosition: '#two',
+            navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
+        },
         owlParagraphsOptions = {
             loop: false,
             items: 1,
@@ -54,6 +57,12 @@ $(document).ready(function () {
             nav: false,
             margin: 15            
         };
+
+    owlSlide.owlCarousel(owlSlideOptions);
+
+    owlSlide.on('changed.owl.carousel', function(event) {
+        location.hash = 'slide' + event.property.value;
+    });        
 
     if ( $(window).width() <= 737 ) {
         var owlActive = owl.owlCarousel(owlOptions),
