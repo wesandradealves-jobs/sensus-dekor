@@ -115,6 +115,24 @@ $(document).ready(function () {
     }, function() {
         $(this).find(".degrade-bg").fadeIn()
     });    
+    $( ".navigation > ul" ).children().each(function() {
+        var e = $(this);
+        e.hover(function() {
+            if(e.children("ul").length){
+                e.click(function() {
+                    e.toggleClass("-toggle")
+                });  
+            }
+        });
+    });    
+    $(document).mouseup(function (e){
+        var container = $(".-toggle");
+        if (!container.is(e.target) 
+        && container.has(e.target).length === 0) 
+        {
+            $(".-toggle").removeClass("-toggle")
+        }
+    });    
 });
       
       

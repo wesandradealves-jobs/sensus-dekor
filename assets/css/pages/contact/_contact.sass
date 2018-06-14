@@ -45,6 +45,10 @@
                                                 display: none
                                             width: 100%
                                         >.contact-ways
+                                            align-items: center
+                                            @extend .flex
+                                            flex-flow: row wrap 
+                                            justify-content: space-evenly
                                             +mq(815px, max)
                                                 margin: 15px auto 10px
                                             text-align: center
@@ -53,11 +57,6 @@
                                                 top: 0   
                                             width: 100%
                                             >li 
-                                                display: inline-block 
-                                                vertical-align: middle
-                                                margin: 0 10px
-                                                +mq(815px, max)
-                                                    margin: 0 5px
                                                 button 
                                                     background-color: white
                                                     +border(999px)
