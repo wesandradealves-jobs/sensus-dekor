@@ -109,7 +109,6 @@ $(document).ready(function () {
             }
         }        
     });
-    var ps = new PerfectScrollbar('.products-list-holder');
     $( ".products" ).hover(function() {
         $(this).find(".degrade-bg").fadeOut()
     }, function() {
@@ -132,7 +131,10 @@ $(document).ready(function () {
         {
             $(".-toggle").removeClass("-toggle")
         }
-    });    
+    });  
+    if($("body").is(".pg-products")){
+        var ps = new PerfectScrollbar('.products-list-holder');
+    }
 });
       
       
