@@ -1,7 +1,13 @@
 .pg-contact
     #wrap 
         >.main
+            +mq(414px, max)
+                background-color: $blue
+                margin-top: 45px
+                padding-top: 0
             .contact
+                +mq(414px, max)
+                    background-color: white
                 >.container
                     >.content
                         >*
@@ -29,7 +35,6 @@
                                     p  
                                         text-align: center
                                         padding: 0 15px
-                                    
                                 >*
                                     &:first-child
                                         width: 55%
@@ -66,103 +71,4 @@
                                                     height: 70px
                                                     width: 70px 
                                                     &:hover
-                                                        background-color: $yellow
-//     #contact                             
-//         background-color: $blue
-//         +border(20px)
-//         +mq(768px, max)
-//             +border(0px)
-//         align-items: stretch
-//         @extend .flex
-//         flex-flow: row wrap
-//         justify-content: space-between 
-//         padding: 0 15px
-//         +mq(836px, max)
-//             padding-top: 15px
-//             +mq(768px, max)
-//                 margin-top: 45px
-//         >div 
-//             flex: 1
-//             >span 
-//                 padding: 8px
-//             &:first-child
-//                 +mq(836px, max)
-//                     order: 2
-//                 flex: 0 0 auto
-//                 width: 55%
-//                 +mq(836px, max)
-//                     width: 100%
-//             &:last-child
-//                 +mq(836px, max)
-//                     order: 1
-//                 padding: 15px
-//                 p 
-//                     color: white 
-//                     justify-self: flex-start
-//                     font-family: 'Volkswagen'
-//                     +rem('font-size', 16px)
-//                     +mq(836px, max)
-//                         +rem('font-size', 12px)
-//                         text-align: center
-//                     padding-bottom: 85px
-//                     +mq(836px, max)
-//                         padding-bottom: 15px
-//                     text-transform: uppercase
-//                 ul 
-//                     text-align: center
-//                     >li 
-//                         display: inline-block 
-//                         margin: 0 15px
-//                         vertical-align: middle 
-//                         button 
-//                             background-color: white
-//                             color: $blue
-//                             +border(999px)
-//                             +rem(('line-height' : '70px', 'font-size' : 30px))
-//                             height: 70px
-//                             width: 70px
-//                             +mq(990px, max)
-//                                 +rem(('line-height' : '50px', 'font-size' : 25px))
-//                                 height: 50px
-//                                 width: 50px 
-//                                 +mq(836px, max)  
-//                                     +rem(('line-height' : '40px', 'font-size' : 25px))
-//                                     height: 40px
-//                                     width: 40px                                                          
-//                             &:hover
-//                                 background-color: $yellow
-//                 @extend .flex
-//                 flex-flow: column wrap
-//                 justify-content: center
-//                 >* 
-//                     width: 100%
-//         input:not(.btn), 
-//         textarea, 
-//         select, 
-//         label
-//             background-color: white
-//             +border(10px)
-//             border: 0 
-//             color: $blue
-//             display: block 
-//             font-family: 'Volkswagen'
-//             overflow: hidden 
-//             padding: 12px 
-//             resize: none
-//             +rem('font-size', 12px)
-//             width: 100%
-//             &[placeholder]
-//                 color: $blue
-//             &::-moz-placeholder
-//                 color: $blue
-//             &::-webkit-input-placeholder
-//                 color: $blue
-//             &:-ms-input-placeholder 
-//                 color: $blue
-//         label 
-//             background-color: transparent
-//             color: white
-//             font-weight: 800
-//             text-align: center
-//         textarea
-//             height: 190px
+                                                        background-color: $yellow 
