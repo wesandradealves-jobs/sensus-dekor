@@ -122,6 +122,12 @@ gulp.task('favico', function() {
         .pipe(development(gulp.dest('dist')));
 });
 
+// Copy json to dist
+gulp.task('json', function() {
+    return gulp.src(['./*.json','!./package.json','!./package-lock.json'])
+        .pipe(development(gulp.dest('dist')));
+});
+
 // Copy htaccess gzip compressor to dist
 gulp.task('htaccess', function() {
     return gulp.src('./.htaccess')
@@ -191,7 +197,7 @@ gulp.task('clean:build', function () {
 // Build task
 gulp.task('build', function (callback) {
     console.log('Building project...')
-    runSequence('clean:build', ['html', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
+    runSequence('clean:build', ['html', 'json', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
         callback
     );
 });
