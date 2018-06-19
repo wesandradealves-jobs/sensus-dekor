@@ -1,3 +1,29 @@
+var url = document.URL, 
+    getProdCat = (url.indexOf("cat=") > -1) ? url.split("cat=").pop() : null,
+    catID,
+    title,
+    description,
+    prodCategories = [
+        {
+            ID: 0,
+            Title: 'Persianas',
+            Slug: 'persianas',
+            Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae.'
+        },
+        {
+            ID: 1,
+            Title: 'Cortinas',
+            Slug: 'cortinas',
+            Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+        },
+        {
+            ID: 2,
+            Title: 'Toldos',
+            Slug: 'toldos',
+            Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae. Adipisicing elit. Earum, beatae.'
+        }                             
+    ];    
+
 function mobileNavigation(){
     $(".header .tcon").toggleClass("tcon-transform")
     if($(".header .tcon").is(".tcon-transform")){
@@ -27,6 +53,25 @@ function fullCarousel(){
         $(".pg-booking .owl-dots").css('width', $("#booking").outerWidth() + 15);
     }    
 }
+function chooseImage(e){
+    var el = $(e);
+    // $.each(el, function(key, val){
+    //     var regExp = /\(([^)]+)\)/,
+    //         matches = regExp.exec(val.attributes.style.nodeValue);
+    //         console.log(matches[1]);
+    // });
+    el.closest(".gallery").children("div").not(el.closest(".gallery").children("div").eq(el.parent().index())).hide();
+    el.closest(".gallery").children("div").eq(el.parent().index()).show();
+}
+function defineAttrs(){
+    for (var i = 0, l = prodCategories.length; i < l; i++) {
+        (getProdCat == prodCategories[i].Slug) ? title = prodCategories[i].Title : null;
+        (getProdCat == prodCategories[i].Slug) ? description = prodCategories[i].Description : null;
+        (getProdCat == prodCategories[i].Slug) ? catID = prodCategories[i].ID : null;
+    }      
+    document.getElementById("category.Title").innerHTML = title; 
+    document.getElementById("category.Description").innerHTML = description; 
+}   
 $(document).ready(function () {
     var owl = $('.owl-carousel.owl-forms'),
         owlSlide = $('.owl-carousel.owl-slideshow'),
@@ -131,41 +176,7 @@ $(document).ready(function () {
         {
             $(".-toggle").removeClass("-toggle")
         }
-    });  
-    var url = document.URL, 
-        getProdCat = (url.indexOf("cat=") > -1) ? url.split("cat=").pop() : null,
-        catID;
-    function defineAttrs(){
-        var title,
-            description,
-            prodCategories = [
-                {
-                    ID: 0,
-                    Title: 'Persianas',
-                    Slug: 'persianas',
-                    Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae.'
-                },
-                {
-                    ID: 1,
-                    Title: 'Cortinas',
-                    Slug: 'cortinas',
-                    Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-                },
-                {
-                    ID: 2,
-                    Title: 'Toldos',
-                    Slug: 'toldos',
-                    Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae. Adipisicing elit. Earum, beatae.'
-                }                             
-            ];
-            for (var i = 0, l = prodCategories.length; i < l; i++) {
-                (getProdCat == prodCategories[i].Slug) ? title = prodCategories[i].Title : null;
-                (getProdCat == prodCategories[i].Slug) ? description = prodCategories[i].Description : null;
-                (getProdCat == prodCategories[i].Slug) ? catID = prodCategories[i].ID : null;
-            }      
-            document.getElementById("category.Title").innerHTML = title; 
-            document.getElementById("category.Description").innerHTML = description; 
-    }
+    });     
     if($("body").is(".pg-products")){
         var ps = new PerfectScrollbar('.products-list-holder');
         defineAttrs(); 
@@ -197,7 +208,12 @@ $(document).ready(function () {
                                         product += '<a class="btn -default -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a>';
                                     product += '</p>';
                                     product += '<div class="content product-info">';
-                                        product += '<div gallery class="gallery">';
+                                        product += '<div class="gallery">';
+                                            product += '<ul class="gallery-navigation">';
+                                                $.each(val.Gallery, function(key, val){
+                                                    product += '<li><div onclick="chooseImage(this)" style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('%20') +'/600X700/'+ val.Image +')"></div></li>';  
+                                                });                                        
+                                            product += '</ul>';
                                         $.each(val.Gallery, function(key, val){
                                             product += '<div style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('%20') +'/600X700/'+ val.Image +')"></div>';  
                                         });
@@ -213,7 +229,7 @@ $(document).ready(function () {
                 });
             });
             document.querySelector(".products-list").innerHTML += product;
-        });          
+        });                
     }  
 });
       
