@@ -31,9 +31,9 @@
                 <li>
                   <a tabindex="3" href="javascript:void(0)" title="Produtos">Produtos</a>
                   <ul>
-                      <li><a href="produtos.html" title="">Persianas</a></li>
-                      <li><a href="produtos.html" title="">Cortinas</a></li>
-                      <li><a href="produtos.html" title="">Toldos</a></li>
+                    <li><a href="produtos.html?cat=persianas" title="">Persianas</a></li>
+                    <li><a href="produtos.html?cat=cortinas" title="">Cortinas</a></li>
+                    <li><a href="produtos.html?cat=toldos" title="">Toldos</a></li>
                   </ul>
                 </li>
                 <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
@@ -73,9 +73,9 @@
               <li>
                 <a tabindex="3" href="javascript:void(0)" title="Produtos">Produtos</a>
                 <ul>
-                    <li><a href="produtos.html" title="">Persianas</a></li>
-                    <li><a href="produtos.html" title="">Cortinas</a></li>
-                    <li><a href="produtos.html" title="">Toldos</a></li>
+                    <li><a href="produtos.html?cat=persianas" title="">Persianas</a></li>
+                    <li><a href="produtos.html?cat=cortinas" title="">Cortinas</a></li>
+                    <li><a href="produtos.html?cat=toldos" title="">Toldos</a></li>
                 </ul>
               </li>
               <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
@@ -93,19 +93,9 @@
       <main class="main">
         <section class="home">
             <div class="container">
-              <div class="owl-carousel owl-theme owl-slideshow">
-                  <div class="item content">
-                    <div>
-                      <h2 class="title">
-                        <small>Nós nos preocupamos</small> Com Você
-                      </h2>
-                      <p>
-                        Para a <strong style="color: orange">Sensus Dekor</strong> não basta um ambiente bonito, mas sim saudável! Possuímos o selo <strong style="color: #749E0D">GREENGUARD</strong>, que é dado apenas aos produtos que são cientificamente comprovados por atender normas de emissão de químicos no ar. Ou seja, o ar dentro da sua casa está protegido, sem risco de exposição de substâncias químicas ou odores tóxicos, tornando o ambiente decorado ainda mais agradável e seguro.
-                      </p>
-                    </div>
-                    <div style="background-image: url(assets/imgs/garden-soil-plant-soil.jpg)"></div>
-                  </div>
-              </div>             
+              <div class="owl-carousel owl-theme owl-slideshow home-carousel">
+                  
+              </div>        
             </div>
         </section>
       </main>
@@ -137,6 +127,59 @@
     <noscript>Seu Navegador pode não aceitar javascript.</noscript>
     <script defer src="assets/js/commons.js"></script>
     <noscript>Seu Navegador pode não aceitar javascript.</noscript>  
+    <script>
+      var banner = [
+          {
+              ID: '0',
+              Image: 'banner1.png',
+              Title: 'Nos preocupamos com você',
+              Description: 'Para a Sensus Dekor não basta um ambiente bonito, mas sim saudável! Possuímos o selo GREENGUARD, que é dado apenas aos produtos que são cientificamente comprovados por atender normas de emissão de químicos no ar. Ou seja, o ar dentro da sua casa está protegido, sem risco de exposição de substâncias químicas ou odores tóxicos, tornando o ambiente decorado ainda mais agradável e seguro.'
+          },
+          {
+              ID: '1',
+              Image: 'banner2.png',
+              Title: 'Sua casa longe do perigo das chamas',
+              Description: 'Um dos principais responsáveis pela rápida propagação do fogo são os cortinados. Mas as cortinas e persianas que a Sensus Dekor oferece não te trazem esse perigo. Nós possuímos o selo NFPA 701 de RETARDANTE DE CHAMAS. O que isso quer dizer? Que uma vela esquecida perto da cortina ou mesmo um curto circuito em uma tomada próxima não pegarão fogo facilmente, garantindo a segurança de você e de quem você ama.'
+          },
+          {
+              ID: '3',
+              Image: 'banner3.png',
+              Title: 'Proteção para você e sua família',
+              Description: 'Procurando proporcionar um ambiente mais saudável, oferecemos nossas cortinas e persianas com os certificados ASTM G21 e G22 de antifungos e antibactérias, que garantem que nossos produtos não permitirão o aparecimento de fungos e bactérias e, muito menos, seu desenvolvimento nas nossas cortinas. Assim, você pode ter certeza que nem você, seus filhos ou pessoas que convivem no ambiente terão problemas alérgicos ou qualquer outro, causado por esse mal.'
+          },
+          {
+              ID: '4',
+              Image: 'banner4.png',
+              Title: 'Juntos por um mundo melhor',
+              Description: 'Além de todas as vantagens, também buscamos colaborar para um mundo melhor e, por isso, possuímos o selo Confident in Textiles - STANDARD 100, que garante que nossos produtos são feitos com materiais seguros, sem qualquer tipo de metal pesado ou agentes que possam causar mal a você e sua família; e também o selo Environmental Building Material, oferecido aqueles produtos que foram produzidos pensando em sustentabilidade e sem o uso de materiais que causem mal ao meio ambiente em geral.'
+          },
+          {
+              ID: '5',
+              Image: 'banner5.png',
+              Title: 'Segurança para você, mulher, seu ambiente',
+              Description: 'Sabemos que, no mundo de hoje, há uma grande preocupação em agendar serviços com pessoas desconhecidas que irão entrar na sua casa. Tanto pelos grandes casos de assédio que se disseminam, assim como pela segurança da casa em si. Aqui na Sensus Dekor possuímos um treinamento com todos os nossos funcionários, para que não atrapalhem o seu dia e entendam que o seu receio é algo natural, gerando assim mais confiança para você recebê-los.'
+          }                               
+      ];
+      function bannerTpl(banner) {
+          return `
+          <div class="item content">
+              <div>
+              <h2 class="title">
+              ${banner.Title}
+              </h2>
+              <p>
+                  ${banner.Description}
+              </p>
+              </div>
+              <div style="background-image: url(assets/imgs/banner/${banner.Image})"></div>
+          </div>`;
+      }    
+      function getBanner(bannerContent) {
+          document.querySelector(".home-carousel").innerHTML += bannerContent;
+      }
+      banner.map(bannerTpl).forEach(getBanner);               
+    </script>  
+    <noscript>Seu Navegador pode não aceitar javascript.</noscript>   
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
   </body>
 </html>

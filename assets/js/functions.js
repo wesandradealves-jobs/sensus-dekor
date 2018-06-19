@@ -55,7 +55,7 @@ $(document).ready(function () {
             items: 1,
             dots: true,
             nav: false,
-            margin: 15            
+            margin: 15
         };
 
     owlSlide.owlCarousel(owlSlideOptions);
@@ -132,9 +132,89 @@ $(document).ready(function () {
             $(".-toggle").removeClass("-toggle")
         }
     });  
+    var url = document.URL, 
+        getProdCat = (url.indexOf("cat=") > -1) ? url.split("cat=").pop() : null,
+        catID;
+    function defineAttrs(){
+        var title,
+            description,
+            prodCategories = [
+                {
+                    ID: 0,
+                    Title: 'Persianas',
+                    Slug: 'persianas',
+                    Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae.'
+                },
+                {
+                    ID: 1,
+                    Title: 'Cortinas',
+                    Slug: 'cortinas',
+                    Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                },
+                {
+                    ID: 2,
+                    Title: 'Toldos',
+                    Slug: 'toldos',
+                    Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae. Adipisicing elit. Earum, beatae.'
+                }                             
+            ];
+            for (var i = 0, l = prodCategories.length; i < l; i++) {
+                (getProdCat == prodCategories[i].Slug) ? title = prodCategories[i].Title : null;
+                (getProdCat == prodCategories[i].Slug) ? description = prodCategories[i].Description : null;
+                (getProdCat == prodCategories[i].Slug) ? catID = prodCategories[i].ID : null;
+            }      
+            document.getElementById("category.Title").innerHTML = title; 
+            document.getElementById("category.Description").innerHTML = description; 
+    }
     if($("body").is(".pg-products")){
         var ps = new PerfectScrollbar('.products-list-holder');
-    }
+        defineAttrs(); 
+        if(!getProdCat){
+            window.location.href = './';
+            return false;
+        }
+        $.getJSON("products.json").done(function( data ) {
+            var product = '';
+            $.each(data.categories, function(key, val){
+                $.each(val.Products, function(key, val){
+                    var Category = val.Category.toUpperCase(),
+                        Title = val.Title;
+                    product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
+                        product += '<div>';
+                            product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('%20')+'/600X700/'+val.FeaturedImage+')"></div>';
+                                product += '<h3 class="title">'+Title+'</h3>';
+                                product += '<p>'+val.Description+'</p>';
+                                product += '<div onclick="showDetails(this)" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
+                            product += '</div>';
+                            product += '<div class="modal -product">';
+                                product += '<button onclick="closeModal()" type="button" class="close tcon tcon-transform tcon-menu--xcross" aria-label="toggle menu">';
+                                    product += '<span class="tcon-menu__lines" aria-hidden="true"></span>';
+                                    product += '<span class="tcon-visuallyhidden">toggle menu</span>';
+                                product += '</button>';          
+                                product += '<div class="modal-content">';
+                                    product += '<p>';
+                                        product += '<small>Já pensou o seu espaço desse jeito?</small>';
+                                        product += '<a class="btn -default -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a>';
+                                    product += '</p>';
+                                    product += '<div class="content product-info">';
+                                        product += '<div gallery class="gallery">';
+                                        $.each(val.Gallery, function(key, val){
+                                            product += '<div style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('%20') +'/600X700/'+ val.Image +')"></div>';  
+                                        });
+                                        product += '</div>';
+                                        product += '<div>';
+                                            product += '<h3 class="title">'+val.Title+'</h3>';
+                                            product += '<p>'+val.Description+'</p>';
+                                            product += '<p>'+val.Text+'</p>';   
+                                        product += '</div>';
+                                    product += '</div>';
+                            product += '</div>';             
+                        product += '</li>';
+                });
+            });
+            document.querySelector(".products-list").innerHTML += product;
+        });          
+    }  
 });
       
       
