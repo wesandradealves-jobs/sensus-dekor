@@ -22,7 +22,36 @@ var url = document.URL,
             Slug: 'toldos',
             Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae. Adipisicing elit. Earum, beatae.'
         }                             
-    ];    
+    ],
+    owl = $('.owl-carousel.owl-forms'),
+    owlSlide = $('.owl-carousel.owl-slideshow'),
+    owlParagraphs = $('.owl-carousel.owl-paragraphs'),
+    owlSlideOptions = {
+        loop:false,
+        center:false,
+        autoWidth:false,
+        margin: 0,
+        nav:true,
+        dots:true,
+        items: 1,
+        URLhashListener:true,
+        startPosition: '#two',
+        navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
+    },
+    owlParagraphsOptions = {
+        loop: false,
+        items: 1,
+        dots: true,
+        nav: false,
+        margin: 30         
+    },        
+    owlOptions = {
+        loop: false,
+        items: 1,
+        dots: true,
+        nav: false,
+        margin: 15
+    };       
 
 function mobileNavigation(){
     $(".header .tcon").toggleClass("tcon-transform")
@@ -60,27 +89,6 @@ function chooseImage(e){
 
     el.closest("ul").prev().attr("data-counter", el.parent().index());
 }
-function navigateImages(e){
-    var el = $(e),
-        index = el.parent().index(),
-        counter = parseInt(el.closest("ul").attr("data-counter"));
-        max = el.closest("ul").next().children().length - 1;    
-        
-        if(index > 0){
-            if(counter < max){
-                el.closest("ul").attr("data-counter", (parseInt(el.closest("ul").attr("data-counter")) + 1))
-            }
-        } else {
-            if(counter > 0){
-                el.closest("ul").attr("data-counter", (parseInt(el.closest("ul").attr("data-counter")) - 1))
-            }
-        }
-
-        el.closest(".gallery").children("div").not(el.closest(".gallery").children("div").eq(counter)).hide();
-        el.closest(".gallery").children("div").eq(counter).show();
-
-        /* inserir data-counter="0" no elemento pai do botão que usa o navigateImages */
-}
 function openSimblings(e){
     var el = $(e),
         index = el.parent().index();
@@ -101,36 +109,6 @@ function defineAttrs(){
     document.getElementById("category.Description").innerHTML = description; 
 }   
 $(document).ready(function () {
-    var owl = $('.owl-carousel.owl-forms'),
-        owlSlide = $('.owl-carousel.owl-slideshow'),
-        owlParagraphs = $('.owl-carousel.owl-paragraphs'),
-        owlSlideOptions = {
-            loop:false,
-            center:false,
-            autoWidth:false,
-            margin: 0,
-            nav:true,
-            dots:true,
-            items: 1,
-            URLhashListener:true,
-            startPosition: '#two',
-            navText:["<i class='owl-prev-arrow fas fa-angle-left'></i>","<i class='owl-next-arrow fas fa-angle-right'></i>"]
-        },
-        owlParagraphsOptions = {
-            loop: false,
-            items: 1,
-            dots: true,
-            nav: false,
-            margin: 30         
-        },        
-        owlOptions = {
-            loop: false,
-            items: 1,
-            dots: true,
-            nav: false,
-            margin: 15
-        };
-
     owlSlide.owlCarousel(owlSlideOptions);
 
     owlSlide.on('changed.owl.carousel', function(event) {
@@ -239,7 +217,7 @@ $(document).ready(function () {
                                         product += '<a class="btn -default -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a>';
                                     product += '</p>';
                                     product += '<div class="content product-info">';
-                                        product += '<div class="gallery">';
+                                        product += '<div data-counter="0" class="gallery">';
                                             product += '<ul class="gallery-thumbnails">';
                                                 $.each(val.Gallery, function(key, val){
                                                     product += '<li><div onclick="chooseImage(this)" style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('%20') +'/600X700/'+ val.Image +')"></div></li>';  
@@ -260,7 +238,33 @@ $(document).ready(function () {
                 });
             });
             document.querySelector(".products-list").innerHTML += product;
-        });                
+        });  
+        $( "body" ).swipe( {
+            swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                $( ".product" ).each(function() {
+                    var el = $(this).children(".modal");
+                    if(el.is(".-toggle")){
+                        var gal = el.find(".gallery"),
+                            imgs = gal.children("div"),
+                            max = gal.children("div").length - 1,
+                            counter = parseInt(gal.attr("data-counter"));
+
+                            if(direction == 'left'){
+                                if(counter < max){
+                                   gal.attr("data-counter", (parseInt(gal.attr("data-counter")) + 1))
+                                }
+                            } else {
+                                if(counter > 0){
+                                   gal.attr("data-counter", (parseInt(gal.attr("data-counter")) - 1))
+                                }
+                            }
+
+                            imgs.not(imgs.eq(counter)).hide();
+                            imgs.eq(counter).show();                        
+                    }
+                });                 
+            }
+        });                         
     }  
 });
       
