@@ -21,7 +21,8 @@
             align-items: center
             @extend .flex
             +mq(767px, max)
-                display: none
+                left: 0
+                top: 35%
             flex-flow: row wrap 
             justify-content: space-between
             left: calc(50% - 900px/2)
@@ -32,6 +33,10 @@
             z-index: 3
             >li 
                 +transition(500ms)
+                +mq(767px, max)
+                    transform: scale(.5)
+                    >button
+                        padding: 0
                 >button 
                     background-color: transparent 
                     color: $blue 
@@ -109,11 +114,10 @@
                     +rem('font-size', 12px)
             >.close
                 @media only screen and (max-height:320px)
-                    top: 40px
+                    top: 15px
                     transform: scale(.7)
-                @media only screen and (min-height:384px)
-                    +mq(737px, max)
-                        top: 0
+                    +mq(692px, max)
+                        top: 15px
             .modal-content
                 >p 
                     +mq(812px, max)
