@@ -46,7 +46,7 @@ function closeModal(){
 }
 function showDetails(e){
     var el = $(e);
-    $(e).parent().next().addClass("-toggle");
+    el.next().addClass("-toggle");
 }
 function fullCarousel(){
     if($(window).width() <= 736){
@@ -219,11 +219,11 @@ $(document).ready(function () {
                     var Category = val.Category.toUpperCase(),
                         Title = val.Title;
                     product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
-                        product += '<div>';
+                        product += '<div onclick="showDetails(this)">';
                             product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('%20')+'/600X700/'+val.FeaturedImage+')"></div>';
                                 product += '<h3 class="title">'+Title+'</h3>';
                                 product += '<p>'+val.Description+'</p>';
-                                product += '<div onclick="showDetails(this)" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
+                                product += '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
                             product += '</div>';
                             product += '<div class="modal -product">';
                                 product += '<button onclick="closeModal()" type="button" class="close tcon tcon-transform tcon-menu--xcross" aria-label="toggle menu">';
