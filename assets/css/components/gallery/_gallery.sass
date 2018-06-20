@@ -4,35 +4,6 @@
     &:hover
         .gallery-thumbnails
             @extend .flex
-        .gallery-navigation
-            >li 
-                &:first-child
-                    left: 0
-                &:last-child
-                    right: 0 
-    &-navigation
-        align-items: center
-        @extend .flex
-        flex-flow: row wrap 
-        justify-content: space-between
-        left: 0
-        position: absolute
-        top: calc(50% - 50px)
-        width: 100%
-        z-index: 3
-        >li 
-            +transition(500ms)
-            &:first-child
-                left: -90px
-            &:last-child
-                right: -90px
-            >button 
-                background-color: transparent 
-                color: $yellow 
-                cursor: pointer
-                font-family: 'Volkswagen'
-                +rem('font-size', 90px)
-                padding: 0 15px
     &-thumbnails
         align-items: center
         display: none

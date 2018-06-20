@@ -78,6 +78,18 @@ function navigateImages(e){
 
         el.closest(".gallery").children("div").not(el.closest(".gallery").children("div").eq(counter)).hide();
         el.closest(".gallery").children("div").eq(counter).show();
+
+        /* inserir data-counter="0" no elemento pai do botão que usa o navigateImages */
+}
+function openSimblings(e){
+    var el = $(e),
+        index = el.parent().index();
+
+        if(index > 0){
+            el.closest(".product").next().find(".modal").addClass("-toggle");
+        } else {
+            el.closest(".product").prev().find(".modal").addClass("-toggle");
+        }
 }
 function defineAttrs(){
     for (var i = 0, l = prodCategories.length; i < l; i++) {
@@ -219,15 +231,15 @@ $(document).ready(function () {
                                     product += '<span class="tcon-visuallyhidden">toggle menu</span>';
                                 product += '</button>';          
                                 product += '<div class="modal-content">';
+                                    product += '<ul class="products-navigation">';
+                                    product += '<li><button onclick="closeModal(), openSimblings(this)"><</button></li><li><button onclick="closeModal(), openSimblings(this)">></button></li>';
+                                    product += '</ul>';
                                     product += '<p>';
                                         product += '<small>Já pensou o seu espaço desse jeito?</small>';
                                         product += '<a class="btn -default -check" tabindex="5" href="agende.html" title="Agendar visita grátis agora!"><i class="fas fa-check"></i><span>Agendar visita grátis agora!</span></a>';
                                     product += '</p>';
                                     product += '<div class="content product-info">';
                                         product += '<div class="gallery">';
-                                            product += '<ul class="gallery-navigation" data-counter="0">';
-                                            product += '<li><button onclick="navigateImages(this)"><</button></li><li><button onclick="navigateImages(this)">></button></li>';
-                                            product += '</ul>';
                                             product += '<ul class="gallery-thumbnails">';
                                                 $.each(val.Gallery, function(key, val){
                                                     product += '<li><div onclick="chooseImage(this)" style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('%20') +'/600X700/'+ val.Image +')"></div></li>';  

@@ -16,7 +16,29 @@
                 left: 0
                 position: absolute
                 width: 100%        
-                z-index: 2        
+                z-index: 2  
+        &-navigation
+            align-items: center
+            @extend .flex
+            +mq(767px, max)
+                display: none
+            flex-flow: row wrap 
+            justify-content: space-between
+            left: calc(50% - 900px/2)
+            position: absolute
+            top: 50%
+            max-width: 900px
+            width: 100%
+            z-index: 3
+            >li 
+                +transition(500ms)
+                >button 
+                    background-color: transparent 
+                    color: $blue 
+                    cursor: pointer
+                    font-family: 'Volkswagen'
+                    +rem('font-size', 90px)
+                    padding: 0 15px                      
         &-list
             align-items: stretch 
             @extend .flex
