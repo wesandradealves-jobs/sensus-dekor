@@ -55,13 +55,29 @@ function fullCarousel(){
 }
 function chooseImage(e){
     var el = $(e);
-    // $.each(el, function(key, val){
-    //     var regExp = /\(([^)]+)\)/,
-    //         matches = regExp.exec(val.attributes.style.nodeValue);
-    //         console.log(matches[1]);
-    // });
     el.closest(".gallery").children("div").not(el.closest(".gallery").children("div").eq(el.parent().index())).hide();
     el.closest(".gallery").children("div").eq(el.parent().index()).show();
+
+    el.closest("ul").prev().attr("data-counter", el.parent().index());
+}
+function navigateImages(e){
+    var el = $(e),
+        index = el.parent().index(),
+        counter = parseInt(el.closest("ul").attr("data-counter"));
+        max = el.closest("ul").next().children().length - 1;    
+        
+        if(index > 0){
+            if(counter < max){
+                el.closest("ul").attr("data-counter", (parseInt(el.closest("ul").attr("data-counter")) + 1))
+            }
+        } else {
+            if(counter > 0){
+                el.closest("ul").attr("data-counter", (parseInt(el.closest("ul").attr("data-counter")) - 1))
+            }
+        }
+
+        el.closest(".gallery").children("div").not(el.closest(".gallery").children("div").eq(counter)).hide();
+        el.closest(".gallery").children("div").eq(counter).show();
 }
 function defineAttrs(){
     for (var i = 0, l = prodCategories.length; i < l; i++) {
@@ -209,7 +225,10 @@ $(document).ready(function () {
                                     product += '</p>';
                                     product += '<div class="content product-info">';
                                         product += '<div class="gallery">';
-                                            product += '<ul class="gallery-navigation">';
+                                            product += '<ul class="gallery-navigation" data-counter="0">';
+                                            product += '<li><button onclick="navigateImages(this)"><</button></li><li><button onclick="navigateImages(this)">></button></li>';
+                                            product += '</ul>';
+                                            product += '<ul class="gallery-thumbnails">';
                                                 $.each(val.Gallery, function(key, val){
                                                     product += '<li><div onclick="chooseImage(this)" style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('%20') +'/600X700/'+ val.Image +')"></div></li>';  
                                                 });                                        
