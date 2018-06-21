@@ -19,7 +19,7 @@ if (!empty($_POST['user_email']) && !empty($_POST['user_nome']) && !empty($_POST
 		<html>
 		<body style='background:#F2F2F2; max-width:600px; margin:auto; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', 'Helvetica', 'Arial', sans-serif; '>	
 			<div class='container' style='background:#FFF; width:90%; margin:auto; padding:20px'>
-		    <div class='logo'><img src='https://www.sensusdekor.com.br/assets/imgs/logo.svg' style='width:150px'></div>
+		    <div class='logo'><img src='https://sensus-dekor.netlify.comassets/imgs/logo.svg' style='width:150px'></div>
 				<div class='header'>
 					<h2 style='font-size:1.6em'><span style='color:#f19200'>$name</span> enviou a seguinte mensagem:</h2>
 					<p><b>Data de envio:</b> $date_send <br> <b>Hora de envio:</b> $hour_send </p>
@@ -42,22 +42,22 @@ if (!empty($_POST['user_email']) && !empty($_POST['user_nome']) && !empty($_POST
 	    if (mail($to, $subject, nl2br($template), $headers)) {
 	    	$_SESSION['msg'] = "Mensagem enviada com sucesso! <br> Obrigado pelo seu contato. <br> Responderemos em breve.";
 	    	$_SESSION['type'] = "success";
-	    	header('Location:https://www.sensusdekor.com.br/');	    	
+	    	header('Location:https://sensus-dekor.netlify.com');	    	
 	    } else {
 	    	$_SESSION['msg'] = "Ocorreu um erro. :( <br> Por algum motivo a mensagem não pode ser enviada. <br> Por favor tente novamente em alguns minutos, caso o erro persista contacte-nos por telefone. Sentimos muito pelo ocorrido. <br> :(";	
 	    	$_SESSION['type'] = "mistakes";    	
-	    	header('Location:https://www.sensusdekor.com.br/');
+	    	header('Location:https://sensus-dekor.netlify.com');
 	    }   
 
 
 	} else {
 		$_SESSION['msg'] = "O e-mail informado não é válido. <br> Por gentileza, verifique o e-mail e tente novamente.";
 		$_SESSION['type'] = "mistakes";		
-		header('Location:https://www.sensusdekor.com.br/');
+		header('Location:https://sensus-dekor.netlify.com');
 	}
 
 } else {
-	header('Location:https://www.sensusdekor.com.br/');
+	header('Location:https://sensus-dekor.netlify.com');
 }
 
 
