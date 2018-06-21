@@ -29,11 +29,11 @@
                 <li><a tabindex="1" href="index.html" title="Home">Home</a></li>
                 <li><a tabindex="2" href="sobre.html" title="Sobre Nós">Sobre Nós</a></li>
                 <li>
-                  <a tabindex="3" href="produtos.html" title="Produtos">Produtos</a>
+                  <a tabindex="3" href="javascript:void(0)" title="Produtos">Produtos</a>
                   <ul>
-                      <li><a href="produtos.html" title="">Produto 1</a></li>
-                      <li><a href="produtos.html" title="">Produto 2</a></li>
-                      <li><a href="produtos.html" title="">Produto 3</a></li>
+                    <li><a href="produtos.html?cat=persianas" title="">Persianas</a></li>
+                    <li><a href="produtos.html?cat=cortinas" title="">Cortinas</a></li>
+                    <li><a href="produtos.html?cat=toldos" title="">Toldos</a></li>
                   </ul>
                 </li>
                 <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
@@ -71,11 +71,11 @@
               <li><a tabindex="1" href="index.html" title="Home">Home</a></li>
               <li><a tabindex="2" href="sobre.html" title="Sobre Nós">Sobre Nós</a></li>
               <li>
-                <a tabindex="3" href="produtos.html" title="Produtos">Produtos</a>
+                <a tabindex="3" href="javascript:void(0)" title="Produtos">Produtos</a>
                 <ul>
-                    <li><a href="produtos.html" title="">Produto 1</a></li>
-                    <li><a href="produtos.html" title="">Produto 2</a></li>
-                    <li><a href="produtos.html" title="">Produto 3</a></li>
+                    <li><a href="produtos.html?cat=persianas" title="">Persianas</a></li>
+                    <li><a href="produtos.html?cat=cortinas" title="">Cortinas</a></li>
+                    <li><a href="produtos.html?cat=toldos" title="">Toldos</a></li>
                 </ul>
               </li>
               <li><a tabindex="4" href="contato.html" title="Contato">Contato</a></li>
@@ -107,37 +107,37 @@
                 <p class="mobile-phrase">
                   Atendemos apenas na cidade do <strong>Rio de Janeiro</strong>
                 </p>                
-                <form id="booking" class="form">
+                <form action="inc/agende.php" method="POST" id="booking" class="form">
                   <div class="content owl-carousel owl-forms">
                     <div>
-                      <span><input required type="text" placeholder="Como prererem que te chamem?" /></span>
-                      <span><input required type="text" placeholder="Qual o endereço do espaço a ser transformado?" /></span>
+                      <span><input name="user_name" id="user_name" required type="text" placeholder="Como prererem que te chamem?" /></span>
+                      <span><input name="user_address" id="user_address" required type="text" placeholder="Qual o endereço do espaço a ser transformado?" /></span>
                       <span>
-                        <input required type="email" placeholder="Em qual e-mail podemos confirmar a visita?" />
+                        <input name="user_email" id="user_email" required type="email" placeholder="Em qual e-mail podemos confirmar a visita?" />
                       </span>     
                       <span class="-fill">
-                        <textarea required name="" id="" placeholder="Tem alguma dúvida ou observação que ache importante? Deixe aqui!"></textarea>
+                        <textarea name="user_subject" id="user_subject" placeholder="Tem alguma dúvida ou observação que ache importante? Deixe aqui!"></textarea>
                       </span>              
                     </div>
                     <div>
-                      <span><input required class="phone" type="text" placeholder="Qual telefone para entrarmos em contato?" /></span>
+                      <span><input name="user_phone" id="user_phone" required class="phone" type="text" placeholder="Qual telefone para entrarmos em contato?" /></span>
                       <span>
-                        <select required name="" id="">
+                        <select required name="user_hourly" id="user_hourly">
                           <option value="">Qual é o melhor horário de atendimento?</option>
-                          <option value="">Manhã</option>
-                          <option value="">Tarde</option>
-                          <option value="">Noite</option>
+                          <option value="Manhã">Manhã</option>
+                          <option value="Tarde">Tarde</option>
+                          <option value="Noite">Noite</option>
                         </select>
                       </span>
                       <span class="-desktop">
-                        <label for="" class="label">Qual o melhor dia para a nossa visita?</label>
+                        <label for="user_visit" class="label">Qual o melhor dia para a nossa visita?</label>
                       </span>
                       <span class="-mobile -date-mobile">
-                        <label for="" class="-mobile">Qual o melhor dia para a nossa visita?</label>
-                        <input type="date" />
+                        <label for="user_visit" class="-mobile">Qual o melhor dia para a nossa visita?</label>
+                        <input required name="user_visit" id="user_visit" type="date" />
                       </span>
                       <span class="-fill -desktop">
-                        <span class="datepicker"></span>
+                        <span name="user_visit" id="user_visit" class="datepicker"></span>
                       </span>
                       <div class="-submit -mobile">
                         <input class="btn -btn-1" type="submit" value="Agendar Agora!" />  
@@ -156,7 +156,7 @@
       <footer class="footer">
         <div class="container">
           <p class="copyright">
-            <a href="#" title="Innominatum"><img height="90" src="assets/imgs/selo_innominatum.svg" alt="Innominatum"></a>
+            <a href="http://innominatum.eu/" title="Innominatum"><img height="90" src="assets/imgs/selo_innominatum.svg" alt="Innominatum"></a>
           </p>
           <nav class="navigation">
             <ul>
@@ -167,7 +167,7 @@
                 <a target="_blank" href="" title="/sensusdekor"><i class="fab fa-facebook-f"></i> /sensusdekor</a>
               </li>
               <li>
-                <p><i class="fas fa-phone"></i> (21) 99798-3711</p>
+                <p><a href="tel:21997983711"><i class="fas fa-phone"></i> (21) 99798-3711</a></p>
               </li>
               <li class="ico-atendimento">
                 <p>Atendemos apenas na cidade do<br/>Rio de Janeiro</p>
@@ -202,9 +202,9 @@
             <p>
               <small>Se houver alguma dúvida, entre em contato por:</small>
               <br/><br/>
-              <strong>(21) 99798-3711</strong>
+              <a href="tel:21997983711"><strong>(21) 99798-3711</strong></a> 
               <br/>
-              <strong><small>contato@sensusdekor.com.br</small></strong>
+              <strong><small><a href="mailto:contato@sensusdekor.com.br" title="contato@sensusdekor.com.br">contato@sensusdekor.com.br</a></small></strong>
             </p>
           </div>          
         </div>

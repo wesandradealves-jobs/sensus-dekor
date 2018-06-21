@@ -1,0 +1,51 @@
+.gallery
+    overflow: hidden
+    position: relative!important
+    &:hover
+        .gallery-thumbnails
+            @extend .flex
+    &-thumbnails
+        align-items: center
+        display: none
+        +mq(692px, max)
+            display: none!important
+        bottom: 0
+        flex-flow: row wrap 
+        justify-content: center
+        left: 0
+        padding: 8px 0 0
+        position: absolute
+        width: 100%
+        z-index: 2
+        +mq(692px, max)
+            z-index: 4
+        >li 
+            cursor: pointer
+            flex: 0 0 auto
+            position: relative
+            opacity: .5
+            &:hover
+                opacity: 1
+            padding: 0 1.5vw 3vw
+            +mq(692px, max)
+                padding: 0 3vw 6vw
+            margin: 0 2px 8px
+            >div
+                background-size: cover
+                background-position: center center 
+                background-repeat: no-repeat     
+                display: block
+                height: 100%
+                left: 0
+                position: absolute
+                top: 0
+                width: 100%       
+    >div
+        background-size: cover
+        background-position: center center 
+        background-repeat: no-repeat
+        display: block 
+        position: relative
+        height: 100%
+        width: 100%
+        z-index: 1

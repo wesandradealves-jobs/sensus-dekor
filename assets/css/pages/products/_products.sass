@@ -1,4 +1,7 @@
 .pg-products
+    #wrap 
+        >.main
+            z-index: initial
     .products
         +mq(738px, min)
             .degrade-bg
@@ -13,7 +16,42 @@
                 left: 0
                 position: absolute
                 width: 100%        
-                z-index: 2        
+                z-index: 2  
+        &-navigation
+            align-items: center
+            @extend .flex
+            +mq(736px, max)
+                left: 0
+                top: 100px
+                +mq(667px, max)
+                    top: 125px
+                +mq(600px, max)
+                    top: calc(50% - 40px)
+                +mq(360px, max)
+                    top: 45px
+                +mq(320px, max)
+                    top: 35px
+            flex-flow: row wrap 
+            justify-content: space-between
+            left: calc(50% - 900px/2)
+            position: absolute
+            top: 50%
+            max-width: 900px
+            width: 100%
+            z-index: 3
+            >li 
+                +transition(500ms)
+                +mq(767px, max)
+                    transform: scale(.5)
+                    >button
+                        padding: 0
+                >button 
+                    background-color: transparent 
+                    color: $blue 
+                    cursor: pointer
+                    font-family: 'Volkswagen'
+                    +rem('font-size', 90px)
+                    padding: 0 15px                      
         &-list
             align-items: stretch 
             @extend .flex
@@ -38,9 +76,14 @@
                 bottom: -100% 
             >*
                 color: gray
+                cursor: pointer
+                &.-hidden
+                    display: none 
+                &.-shown
+                    display: inherit
                 flex: 0 0 auto 
                 font-family: 'Mosk Light 300'
-                padding: 0 25px 50px
+                padding: 0 15px 30px
                 position: relative
                 width: 20%
                 +mq(1024px, max)
@@ -71,159 +114,146 @@
                     background-repeat: no-repeat
                     height: 0
                     padding: 0 0 100%
-    .modal
-        justify-content: center
-        p 
-            text-align: center
-            >small 
-                +rem('font-size', 12px)
-        .modal-content
-            >p 
-                +mq(812px, max)
-                    display: none                 
-        .btn
-            +rem('font-size', 16px)
-        &.-product
-            .product-info
-                &.content
-                    background-color: white
-                    max-width: 768px
-                    margin: 45px auto 0
-                    @media only screen and (max-height:414px)
-                        margin: 15px auto 0
-                    +mq(480px, max)
-                        margin: 30px auto 0
-                    +mq(414px, max)
-                        margin: 15px auto 0
-                    +mq(320px, max)
-                        margin: 30px auto 0
-                    position: relative
-                    +shadow(0px,0px,25px,-5px,black)
-                    >*
-                        position: initial
-                        .title,
-                        p 
-                            text-align: left
-                            +mq(414px, max)
-                                text-align: center
-                        .title
-                            @media only screen and (max-height:414px)
-                                +rem('font-size', 14px)
-                            +mq(414px, max)
-                                +rem('font-size', 22px)
-                            &+p 
-                                @media only screen and (max-height:414px)
-                                    +rem('font-size', 12px)
-                                margin: 5px 0 15px
-                                &~p 
-                                    +rem('font-size', 10px)
-                                    @media only screen and (max-height:414px)
-                                        +rem('font-size', 9px)
-                        &:first-child
-                            min-height: 320px
-                            @media only screen and (max-height:414px)
-                                min-height: 200px
-                            +mq(360px, max)
-                                min-height: 175px
-                            +mq(320px, max)
-                                min-height: 120px
-                            padding-right: 0
-                            width: 55%
-                            +mq(414px, max)
-                                width: 100%
-                        &:last-child
-                            padding: 30px
-                            @media only screen and (max-height:320px)
-                                padding: 10px
-                            +mq(360px, max)
-                                padding: 15px
-                .owl-carousel
-                    height: 100%
-                    position: initial
-                    .owl-stage-outer,
-                    .owl-stage,
-                    .owl-item
-                        position: initial
-                        height: inherit
-                    .owl-item 
-                        > div
-                            background-position: center center 
-                            background-size: cover 
-                            background-repeat: no-repeat
-                            height: inherit
-                    .owl-next,
-                    .owl-prev
-                        +rem('font-size', 55px)
-                        left: -90px
-                        position: absolute
-                        top: calc(50% - 30px)
-                    .owl-next
-                        left: initial 
-                        right: -90px                         
-                    .owl-dots
-                        bottom: -45px
+        .modal
+            justify-content: center
+            p 
+                text-align: center
+                >small 
+                    +rem('font-size', 12px)
+            >.close
+                @media only screen and (max-height:320px)
+                    top: 15px
+                    transform: scale(.7)
+                    +mq(692px, max)
+                        top: 15px
+            .modal-content
+                >p 
+                    +mq(812px, max)
+                        display: none                 
+            .btn
+                +rem('font-size', 16px)
+            &.-product
+                .product-info
+                    &.content
+                        background-color: white
+                        max-width: 768px
+                        margin: 45px auto 0
                         @media only screen and (max-height:414px)
-                            bottom: -30px
+                            margin: 15px auto 0
+                        +mq(480px, max)
+                            margin: 30px auto 0
                         +mq(414px, max)
-                            bottom: -30px
-                        display: block
-                        left: 0 
-                        margin: 0 auto 
-                        position: absolute
-                        text-align: center
-                        width: 100% 
-                        .owl-dot
-                            display: inline-block 
-                            vertical-align: middle 
-                            margin: 0 4px
-                            span 
-                                background-color: gray 
-                                +border(999px)
+                            margin: 15px auto 0
+                        +mq(320px, max)
+                            margin: 30px auto 0
+                        position: relative
+                        +shadow(0px,0px,25px,-5px,black)
+                        >*
+                            position: initial
+                            .title,
+                            p 
+                                text-align: left
+                                +mq(414px, max)
+                                    text-align: center
+                            .title
+                                @media only screen and (max-height:414px)
+                                    +rem('font-size', 14px)
+                                +mq(414px, max)
+                                    +rem('font-size', 22px)
+                                &+p 
+                                    @media only screen and (max-height:414px)
+                                        +rem('font-size', 12px)
+                                    margin: 5px 0 15px
+                                    &~p 
+                                        +rem('font-size', 10px)
+                                        @media only screen and (max-height:414px)
+                                            +rem('font-size', 9px)
+                            &:first-child
+                                min-height: 320px
+                                @media only screen and (max-height:414px)
+                                    min-height: 200px
+                                +mq(360px, max)
+                                    min-height: 175px
+                                +mq(320px, max)
+                                    min-height: 120px
+                                padding-right: 0
+                                width: 55%
+                                +mq(414px, max)
+                                    width: 100%
+                            &:last-child
+                                padding: 30px
+                                @media only screen and (max-height:320px)
+                                    padding: 10px
+                                +mq(360px, max)
+                                    padding: 15px
+
+                    .owl-thumbnails
+                        bottom: 15px
+                        display: none
+                        flex-flow: row wrap 
+                        justify-content: space-between
+                        position: absolute 
+                        padding: 0 7.5px
+                        width: 55%
+                        >* 
+                            flex: 1
+                            padding: 0 7.5px
+                            >a 
+                                background-size: cover 
+                                background-position: center center
+                                display: block
+                                padding: 0 0 100%
+                                width: 100%
+                    +mq(1025px, min)
+                        &:hover
+                            .owl-thumbnails
+                                display: flex
+                    .owl-carousel
+                        height: 100%
+                        position: initial
+                        .owl-stage-outer,
+                        .owl-stage,
+                        .owl-item
+                            position: initial
+                            height: inherit
+                        .owl-item 
+                            > div
+                                background-position: center center 
+                                background-size: cover 
+                                background-repeat: no-repeat
+                                height: inherit
+                        .owl-next,
+                        .owl-prev
+                            +rem('font-size', 55px)
+                            left: -90px
+                            position: absolute
+                            top: calc(50% - 30px)
+                        .owl-next
+                            left: initial 
+                            right: -90px                         
+                        .owl-dots
+                            bottom: -45px
+                            @media only screen and (max-height:414px)
+                                bottom: -30px
+                            +mq(414px, max)
+                                bottom: -30px
+                            display: block
+                            left: 0 
+                            margin: 0 auto 
+                            position: absolute
+                            text-align: center
+                            width: 100% 
+                            .owl-dot
                                 display: inline-block 
                                 vertical-align: middle 
-                                height: 10px
-                                width: 10px
-                            &.active
+                                margin: 0 4px
                                 span 
-                                    background-color: $blue                            
-                // >div
-                //     flex: 1
-                //     min-height: 390px
-                //     +mq(812px, max)
-                //         min-height: 240px
-                //         +mq(568px, max)
-                //             min-height: 140px
-                //         +mq(414px, max)
-                //             min-height: 175px
-                //     position: initial
-                //     &:first-child
-                //         flex: 0 0 auto 
-                //         width: 55%  
-                //         +mq(414px, max)
-                //             width: 100%       
-                //     &:last-child
-                //         padding: 15px 30px 30px 30px    
-                // *
-                //     text-align: left
-                // .title
-                //     +rem('font-size', 25px)
-                //     +mq(812px, max)
-                //         +rem('font-size', 18px)
-                //     +mq(568px, max)
-                //         +rem('font-size', 16px)
-                //     &+p 
-                //         +rem('font-size', 14px)
-                //         +mq(812px, max)
-                //             +rem('font-size', 13px)
-                //         +mq(568px, max)
-                //             +rem('font-size', 11px)
-                //         margin-bottom: 45px
-                //         +mq(812px, max)
-                //             margin-bottom: 15px
-                //         &~p 
-                //             text-transform: initial
-                //             +rem('font-size', 12px)      
-                //             +mq(812px, max)
-                //                 +rem('font-size', 11px)    
-                //             +mq(568px, max)
-                //                 +rem('font-size', 10px)   
+                                    background-color: gray 
+                                    +border(999px)
+                                    display: inline-block 
+                                    vertical-align: middle 
+                                    height: 10px
+                                    width: 10px
+                                &.active
+                                    span 
+                                        background-color: $blue    

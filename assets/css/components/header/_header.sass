@@ -1,7 +1,7 @@
 .header
     flex: 0 0 auto 
     width: 100%
-    z-index: 2
+    z-index: 4
     >.container
         align-items: center
         @extend .flex
@@ -31,7 +31,7 @@
                     &:not(:last-child)
                         +mq(768px, max)
                             display: none
-                    &:hover > ul 
+                    &.-toggle > ul 
                         display: block 
                     a:not(.btn)
                         &::after
@@ -53,9 +53,9 @@
                         border-left: 1px $blue solid 
                         display: none
                         left: -9px
-                        padding: 10px 0 10px 8px
+                        padding: 20px 0 10px 8px
                         position: absolute
-                        top: 100% 
+                        top: 0
                         >li 
                             &:not(:last-child)
                                 margin-bottom: 8px

@@ -1,0 +1,35 @@
+
+{
+    "banner":[
+        {
+            "ID": "0",
+            "Image": "banner1.png",
+            "Title": "Nos preocupamos com você",
+            "Description": "Para a Sensus Dekor não basta um ambiente bonito, mas sim saudável! Possuímos o selo GREENGUARD, que é dado apenas aos produtos que são cientificamente comprovados por atender normas de emissão de químicos no ar. Ou seja, o ar dentro da sua casa está protegido, sem risco de exposição de substâncias químicas ou odores tóxicos, tornando o ambiente decorado ainda mais agradável e seguro."
+        },
+        {
+            "ID": "1",
+            "Image": "banner2.png",
+            "Title": "Sua casa longe do perigo das chamas",
+            "Description": "Um dos principais responsáveis pela rápida propagação do fogo são os cortinados. Mas as cortinas e persianas que a Sensus Dekor oferece não te trazem esse perigo. Nós possuímos o selo NFPA 701 de RETARDANTE DE CHAMAS. O que isso quer dizer? Que uma vela esquecida perto da cortina ou mesmo um curto circuito em uma tomada próxima não pegarão fogo facilmente, garantindo a segurança de você e de quem você ama."
+        },
+        {
+            "ID": "3",
+            "Image": "banner3.png",
+            "Title": "Proteção para você e sua família",
+            "Description": "Procurando proporcionar um ambiente mais saudável, oferecemos nossas cortinas e persianas com os certificados ASTM G21 e G22 de antifungos e antibactérias, que garantem que nossos produtos não permitirão o aparecimento de fungos e bactérias e, muito menos, seu desenvolvimento nas nossas cortinas. Assim, você pode ter certeza que nem você, seus filhos ou pessoas que convivem no ambiente terão problemas alérgicos ou qualquer outro, causado por esse mal."
+        },
+        {
+            "ID": "4",
+            "Image": "banner4.png",
+            "Title": "Juntos por um mundo melhor",
+            "Description": "Além de todas as vantagens, também buscamos colaborar para um mundo melhor e, por isso, possuímos o selo Confident in Textiles - STANDARD 100, que garante que nossos produtos são feitos com materiais seguros, sem qualquer tipo de metal pesado ou agentes que possam causar mal a você e sua família; e também o selo Environmental Building Material, oferecido aqueles produtos que foram produzidos pensando em sustentabilidade e sem o uso de materiais que causem mal ao meio ambiente em geral."
+        },
+        {
+            "ID": "5",
+            "Image": "banner5.png",
+            "Title": "Segurança para você, mulher, seu ambiente",
+            "Description": "Sabemos que, no mundo de hoje, há uma grande preocupação em agendar serviços com pessoas desconhecidas que irão entrar na sua casa. Tanto pelos grandes casos de assédio que se disseminam, assim como pela segurança da casa em si. Aqui na Sensus Dekor possuímos um treinamento com todos os nossos funcionários, para que não atrapalhem o seu dia e entendam que o seu receio é algo natural, gerando assim mais confiança para você recebê-los."
+        }                               
+    ]
+}

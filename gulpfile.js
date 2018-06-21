@@ -104,7 +104,7 @@ gulp.task('commons', function(){
 
 // Vendors .js generator
 gulp.task('vendors', function() {
-  return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/owl.carousel2/dist/owl.carousel.js', 'assets/js/jquery-ui.js', 'node_modules/jquery-ui/ui/i18n/datepicker-pt-BR.js', 'node_modules/jquery-inputmask/index.js', 'node_modules/perfect-scrollbar/dist/perfect-scrollbar.js'])
+  return gulp.src(['node_modules/jquery/dist/jquery.js', 'assets/js/jquery-ui.js', 'node_modules/owl.carousel2/dist/owl.carousel.js', 'node_modules/jquery-inputmask/index.js', 'node_modules/perfect-scrollbar/dist/perfect-scrollbar.js', 'node_modules/jquery-touchswipe/jquery.touchSwipe.js','node_modules/jquery-ui/ui/i18n/datepicker-pt-BR.js'])
     .pipe(uglify())
     .pipe(concat('vendors.js'))
     .pipe(gulp.dest('assets/js'));
@@ -119,6 +119,12 @@ gulp.task('js-dist', function() {
 // Copy favico to dist
 gulp.task('favico', function() {
     return gulp.src(['./.ico','./favico.*'])
+        .pipe(development(gulp.dest('dist')));
+});
+
+// Copy json to dist
+gulp.task('json', function() {
+    return gulp.src(['./*.json','!./package.json','!./package-lock.json'])
         .pipe(development(gulp.dest('dist')));
 });
 
@@ -141,7 +147,7 @@ gulp.task('images', function(){
             ]
         })
     ]))
-    .pipe(gulp.dest('dist/assets/imgs'));
+    .pipe(development(gulp.dest('dist/assets/imgs')));
 });
 
 // Copy and minify html to dist
@@ -172,6 +178,12 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest('dist/assets/fonts/'));
 });
 
+// INC folder to dist
+gulp.task('inc', function() {
+    return gulp.src('inc/**/*')
+        .pipe(development(gulp.dest("dist/inc/")));
+});
+
 // Browsersync + SASS + js generators and cleaner
 gulp.task('serve', ['scripts', 'sass', 'commons', 'vendors'], function() {
     browserSync.init({
@@ -191,7 +203,7 @@ gulp.task('clean:build', function () {
 // Build task
 gulp.task('build', function (callback) {
     console.log('Building project...')
-    runSequence('clean:build', ['html', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
+    runSequence('clean:build', ['html', 'json', 'inc', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
         callback
     );
 });
