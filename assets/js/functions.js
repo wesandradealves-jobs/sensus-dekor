@@ -93,10 +93,32 @@ function openSimblings(e){
     var el = $(e),
         index = el.parent().index();
 
-        if(index > 0){
-            el.closest(".product").next().find(".modal").addClass("-toggle");
+        if($(window).width() > 736){
+            closeModal();
+            if(index > 0){
+                el.closest(".product").next().find(".modal").addClass("-toggle");
+            } else {
+                el.closest(".product").prev().find(".modal").addClass("-toggle");
+            }
         } else {
-            el.closest(".product").prev().find(".modal").addClass("-toggle");
+            var gal = el.closest(".products-navigation").closest("div").children("div").find(".gallery"),
+                index = el.parent().index(),
+                imgs = gal.children("div"),
+                max = gal.children("div").length - 1,
+                counter = parseInt(gal.attr("data-counter"));
+
+            if(index == 1){
+                if(counter < max){
+                    gal.attr("data-counter", (parseInt(gal.attr("data-counter")) + 1));
+                }
+            } else {
+                if(counter > 0){
+                   gal.attr("data-counter", (parseInt(gal.attr("data-counter")) - 1));
+                }
+            }
+
+            imgs.not(imgs.eq(counter)).hide();
+            imgs.eq(counter).show();             
         }
 }
 function defineAttrs(){
@@ -210,7 +232,7 @@ $(document).ready(function () {
                                 product += '</button>';          
                                 product += '<div class="modal-content">';
                                     product += '<ul class="products-navigation">';
-                                    product += '<li><button onclick="closeModal(), openSimblings(this)"><</button></li><li><button onclick="closeModal(), openSimblings(this)">></button></li>';
+                                    product += '<li><button onclick="openSimblings(this)"><</button></li><li><button onclick="openSimblings(this)">></button></li>';
                                     product += '</ul>';
                                     product += '<p>';
                                         product += '<small>Já pensou o seu espaço desse jeito?</small>';

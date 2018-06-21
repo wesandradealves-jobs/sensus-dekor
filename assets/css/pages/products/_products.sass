@@ -20,9 +20,17 @@
         &-navigation
             align-items: center
             @extend .flex
-            +mq(767px, max)
+            +mq(736px, max)
                 left: 0
-                top: 35%
+                top: 100px
+                +mq(667px, max)
+                    top: 125px
+                +mq(600px, max)
+                    top: calc(50% - 40px)
+                +mq(360px, max)
+                    top: 45px
+                +mq(320px, max)
+                    top: 35px
             flex-flow: row wrap 
             justify-content: space-between
             left: calc(50% - 900px/2)
