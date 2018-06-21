@@ -147,7 +147,7 @@ gulp.task('images', function(){
             ]
         })
     ]))
-    .pipe(gulp.dest('dist/assets/imgs'));
+    .pipe(development(gulp.dest('dist/assets/imgs')));
 });
 
 // Copy and minify html to dist
@@ -178,6 +178,12 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest('dist/assets/fonts/'));
 });
 
+// INC folder to dist
+gulp.task('inc', function() {
+    return gulp.src('inc/**/*')
+        .pipe(development(gulp.dest("dist/inc/")));
+});
+
 // Browsersync + SASS + js generators and cleaner
 gulp.task('serve', ['scripts', 'sass', 'commons', 'vendors'], function() {
     browserSync.init({
@@ -197,7 +203,7 @@ gulp.task('clean:build', function () {
 // Build task
 gulp.task('build', function (callback) {
     console.log('Building project...')
-    runSequence('clean:build', ['html', 'json', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
+    runSequence('clean:build', ['html', 'json', 'inc', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
         callback
     );
 });

@@ -130,6 +130,17 @@ function defineAttrs(){
     document.getElementById("category.Title").innerHTML = title; 
     document.getElementById("category.Description").innerHTML = description; 
 }   
+function sendWPP(e){   
+    var e = $(e);
+    var telefone = "5521997983711";
+    var saudacao = "Olá! Meu nome é";
+    var name = document.getElementById("user_nome").value;
+    var email = document.getElementById("user_email").value;
+    var msg = document.getElementById("user_msg").value;		
+    var saudacaoencode = encodeURI(saudacao);		
+    var url_base = "https://api.whatsapp.com/send?phone=" + telefone + "&text=" + saudacaoencode + "%20" + encodeURI(name) + "%20e%20" + encodeURI(msg);
+    e.attr("href", url_base);	   
+}   
 $(document).ready(function () {
     owlSlide.owlCarousel(owlSlideOptions);
 
@@ -287,7 +298,7 @@ $(document).ready(function () {
                 });                 
             }
         });                         
-    }  
+    }   
 });
       
       
