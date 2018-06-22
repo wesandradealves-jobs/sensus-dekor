@@ -231,7 +231,7 @@ $(document).ready(function () {
                         Title = val.Title;
                     product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
                         product += '<div onclick="showDetails(this)">';
-                            product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('-')+'/600X700/'+val.FeaturedImage+')"></div>';
+                            product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('-')+'/600x700/'+val.FeaturedImage+')"></div>';
                                 product += '<h3 class="title">'+Title+'</h3>';
                                 product += '<p>'+val.Description+'</p>';
                                 product += '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
