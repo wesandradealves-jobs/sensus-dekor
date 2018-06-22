@@ -9,19 +9,19 @@ var url = document.URL,
             ID: 0,
             Title: 'Persianas',
             Slug: 'persianas',
-            Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae.'
+            Description: ''
         },
         {
             ID: 1,
             Title: 'Cortinas',
             Slug: 'cortinas',
-            Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+            Description: ''
         },
         {
             ID: 2,
             Title: 'Toldos',
             Slug: 'toldos',
-            Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, beatae. Adipisicing elit. Earum, beatae.'
+            Description: ''
         }                             
     ],
     owl = $('.owl-carousel.owl-forms'),
@@ -172,6 +172,9 @@ $(document).ready(function () {
         nextText: ">",
         shortYearCutoff: 50,
         changeYear: false,
+        onSelect: function(dateText) {
+            $("#user_visit_datepicker").val(dateText);
+        },        
         dayNamesMin: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
     });
     $("form").submit(function(e) {
