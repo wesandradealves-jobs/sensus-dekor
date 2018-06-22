@@ -10,7 +10,7 @@ if (!empty($_POST['user_email']) && !empty($_POST['user_name'])) {
 		$subject = $_POST['user_subject'];
 		$phone = $_POST['user_phone'];
 		$hourly = $_POST['user_hourly'];
-		$visit = $_POST['user_visit'];
+		$visit = (!$_POST['user_visit_datepicker']) ? $_POST['user_visit_date'] : $_POST['user_visit_datepicker'];
 		$_SESSION['name'] = $name;
 		$email_servidor = "contato@sensusdekor.com.br";
 		$to = "contato@sensusdekor.com.br";
