@@ -3,6 +3,7 @@ var url = document.URL,
     catID,
     title,
     description,
+    submit = false,
     prodCategories = [
         {
             ID: 0,
@@ -173,6 +174,15 @@ $(document).ready(function () {
         changeYear: false,
         dayNamesMin: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
     });
+    $("form").submit(function(e) {
+        if(!submit)
+            e.preventDefault();           
+        submit = true;
+        $("body").find(".modal").toggleClass("-toggle");
+        setTimeout(function(){
+            $("form").submit();          
+        }, 1000);           
+    });    
     fullCarousel();
     $(window).on("resize", function () {
         fullCarousel();
