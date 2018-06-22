@@ -253,11 +253,11 @@ $(document).ready(function () {
                                         product += '<div data-counter="0" class="gallery">';
                                             product += '<ul class="gallery-thumbnails">';
                                                 $.each(val.Gallery, function(key, val){
-                                                    product += '<li><div onclick="chooseImage(this)" style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('-') +'/600X700/'+ val.Image +')"></div></li>';  
+                                                    product += '<li><div onclick="chooseImage(this)" style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('-') +'/600x700/'+ val.Image +')"></div></li>';  
                                                 });                                        
                                             product += '</ul>';
                                         $.each(val.Gallery, function(key, val){
-                                            product += '<div style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('-') +'/600X700/'+ val.Image +')"></div>';  
+                                            product += '<div style="background-image:url(assets/imgs/products/'+ Category +'/'+ Title.toUpperCase().split(' ').join('-') +'/600x700/'+ val.Image +')"></div>';  
                                         });
                                         product += '</div>';
                                         product += '<div>';
