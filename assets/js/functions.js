@@ -130,6 +130,10 @@ function defineAttrs(){
     }      
     document.getElementById("category.Title").innerHTML = title; 
     document.getElementById("category.Description").innerHTML = description; 
+
+    $( ".categories" ).children().each(function() {
+        ($(this).find("a").text().toLowerCase() == title.toLowerCase()) ? $(this).addClass("-active") : ''
+    });    
 }   
 function sendWPP(e){   
     var e = $(e);
@@ -241,12 +245,15 @@ $(document).ready(function () {
             $.each(data.categories, function(key, val){
                 $.each(val.Products, function(key, val){
                     var Category = val.Category.toUpperCase(),
+                        Description = val.Description,
+                        Text = val.Text.substr(Description.length),
                         Title = val.Title;
+
                     product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
                         product += '<div onclick="showDetails(this)">';
                             product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('-')+'/600x700/'+val.FeaturedImage+')"></div>';
                                 product += '<h3 class="title">'+Title+'</h3>';
-                                product += '<p>'+val.Description+'</p>';
+                                product += '<p>'+Description+'</p>';
                                 product += '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
                             product += '</div>';
                             product += '<div class="modal -product">';
@@ -275,8 +282,8 @@ $(document).ready(function () {
                                         product += '</div>';
                                         product += '<div>';
                                             product += '<h3 class="title">'+val.Title+'</h3>';
-                                            product += '<p>'+val.Description+'</p>';
-                                            product += '<p>'+val.Text+'</p>';   
+                                            product += '<p>'+Description+'</p>';
+                                            product += '<p>'+Text+'</p>';   
                                         product += '</div>';
                                     product += '</div>';
                             product += '</div>';             
