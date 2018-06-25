@@ -173,18 +173,15 @@
                                 +mq(414px, max)
                                     text-align: center
                             .title
+                                margin-bottom: 15px
                                 @media only screen and (max-height:414px)
                                     +rem('font-size', 14px)
                                 +mq(414px, max)
                                     +rem('font-size', 22px)
-                                &+p 
+                                &~p 
+                                    +rem(('font-size':10px, 'line-height':16px))
                                     @media only screen and (max-height:414px)
-                                        +rem('font-size', 12px)
-                                    margin: 5px 0 15px
-                                    &~p 
-                                        +rem(('font-size':10px, 'line-height':16px))
-                                        @media only screen and (max-height:414px)
-                                            +rem('font-size', 9px)
+                                        +rem('font-size', 9px)
                             &:first-child
                                 min-height: 320px
                                 @media only screen and (max-height:414px)
