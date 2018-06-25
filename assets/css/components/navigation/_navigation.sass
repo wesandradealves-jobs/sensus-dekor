@@ -61,6 +61,17 @@
                         p 
                             font-family: 'Volkswagen'
     &:not(.-mobile)
+        .categories
+            .-active
+                &::before
+                    background-color: lightgray
+                    +border(999px)
+                    content: ""
+                    display: inline-block 
+                    margin-right: 5px
+                    vertical-align: middle 
+                    height: 5px
+                    width: 5px        
         >ul 
             align-items: center
             @extend .flex
