@@ -6,9 +6,18 @@
                 +mq(836px, max)
                     border-bottom: 3px rgba(0,0,0,.4) solid
                     padding-top: 15px
-                    padding-bottom: 10px                
+                    padding-bottom: 10px        
+        >.footer
+            >.container
+                +mq(1366px, max)
+                    +mq(1280px, min)  
+                        padding-bottom: 25px                
         >.main
-            z-index: 2
+            +mq(1366px, max)
+                +mq(1280px, min)  
+                    padding-bottom: 0
+                    padding-top: 15px                  
+            z-index: 2     
             .home
                 .owl-carousel
                     .content
@@ -17,6 +26,9 @@
                         >*
                             &:first-child
                                 min-height: 480px
+                                +mq(1366px, max)
+                                    +mq(1280px, min)
+                                         min-height: 345px                                  
                                 width: 30%
                                 +mq(1048px, max)
                                     width: 40%
@@ -33,6 +45,9 @@
                                 display: block 
                                 font-family: 'Volkswagen'
                                 +rem('font-size', 35px)
+                                +mq(1366px, max)
+                                    +mq(1280px, min)  
+                                        +rem('font-size', 25px)                                    
                                 margin-bottom: 15px
                                 text-transform: uppercase
                                 >small 
@@ -41,10 +56,16 @@
                                 &~p
                                     +mq(836px, max)
                                         text-align: justify
-                                    +rem(('font-size' : 14px, 'line-height' : 22px))                                                                     
+                                    +rem(('font-size' : 14px, 'line-height' : 22px))      
+                                    +mq(1366px, max)
+                                        +mq(1280px, min)         
+                                            +rem('font-size', 11px)                                                                                              
                     >.owl-controls
                         align-items: center
                         bottom: 0
+                        +mq(1366px, max)
+                            +mq(1280px, min)                        
+                                bottom: -35px
                         @extend .flex
                         flex-flow: row wrap 
                         justify-content: space-between
@@ -120,11 +141,18 @@
                 >* 
                     display: none
             margin-top: -75px
+            +mq(1366px, max)
+                +mq(1280px, min)       
+                    margin-top: 0     
             +mq(836px, max)
                 margin-top: -25px
             z-index: 1
             >.container
                 padding-top: 65px
+                +mq(1366px, max)
+                    +mq(1280px, min)
+                        padding-top: 10px
+                        padding-bottom: 20px                
                 >.copyright
                     &::after,
                     &::before

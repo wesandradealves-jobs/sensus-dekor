@@ -228,6 +228,9 @@ input
 .main-text
     font-family: 'Mosk Light 300'
     text-align: justify
+    +mq(1366px, max)
+        +mq(1280px, min)        
+            +rem('font-size', 11px)        
     +mq(737px, max)
         display: none
 
