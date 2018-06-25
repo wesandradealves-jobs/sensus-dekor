@@ -76,7 +76,7 @@ function closeModal(){
 }
 function showDetails(e){
     var el = $(e);
-    el.next().addClass("-toggle");
+    el.find(".modal").addClass("-toggle");
 }
 function fullCarousel(){
     if($(window).width() <= 736){
@@ -240,6 +240,7 @@ $(document).ready(function () {
             window.location.href = './';
             return false;
         }
+
         $.getJSON("products.json").done(function( data ) {
             var product = '';
             $.each(data.categories, function(key, val){
@@ -249,7 +250,7 @@ $(document).ready(function () {
                         Text = val.Text.substr(Description.length),
                         Title = val.Title;
 
-                    product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
+                    product += '<li onmouseover="showDetails(this)" class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
                         product += '<div onclick="showDetails(this)">';
                             product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('-')+'/600x700/'+val.FeaturedImage+')"></div>';
                                 product += '<h3 class="title">'+Title+'</h3>';
@@ -292,6 +293,7 @@ $(document).ready(function () {
             });
             document.querySelector(".products-list").innerHTML += product;
         });  
+
         $( "body" ).swipe( {
             swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
                 $( ".product" ).each(function() {
@@ -317,7 +319,7 @@ $(document).ready(function () {
                     }
                 });                 
             }
-        });                         
+        });         
     }   
 });
       
