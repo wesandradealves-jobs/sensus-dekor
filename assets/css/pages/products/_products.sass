@@ -25,15 +25,25 @@
             left: calc(50% - 900px/2)
             +mq(812px, max)
                 left: 0
-                top: 16vw
+                top: calc(16vw + 26px)
+                @media only screen and (max-height:414px)
+                    top: 16vw
                 +mq(736px, max)
-                    top: 19vw
+                    top: calc(19vw + 26px)
+                    @media only screen and (max-height:414px)
+                        top: 19vw                    
                 +mq(480px, max)
-                    top: 40vw
+                    top: calc(40vw + 26px)
+                    @media only screen and (max-height:414px)
+                        top: 40vw                        
                     +mq(414px, max)
-                        top: 35vw
+                        top: calc(35vw + 26px)
+                        @media only screen and (max-height:414px)
+                            top: 35vw                              
                         +mq(320px, max)
-                            top: 13vw
+                            top: calc(20vw + 26px)
+                            @media only screen and (max-height:414px)
+                                top: 20vw                              
             position: absolute
             top: 50%
             max-width: 900px
@@ -131,22 +141,28 @@
                 >small 
                     +rem('font-size', 12px)
             >.close
-                // +mq(414px, max)
-                //     .tcon-menu__lines::after, .tcon-menu__lines::before
-                //         background: white
                 +mq(812px, max)
                     top: 0
                     transform: scale(.8)
                     padding: 0 0
+                    right: initial 
+                    left: 0
                     +mq(414px, max)
                         top: 10px
                         padding: 0 10px
+                        left: initial 
+                        right: 0
             .modal-content
                 +mq(812px, max)
                     height: 100vh
                 >p 
+                    @media only screen and (max-height:414px)
+                        display: none
                     +mq(812px, max)
-                        display: none                 
+                        padding: 13px 0
+                        transform: scale(.7)                    
+                        >small
+                            display: none                 
             .btn
                 +rem('font-size', 16px)
             &.-product
