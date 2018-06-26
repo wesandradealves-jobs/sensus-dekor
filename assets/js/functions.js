@@ -76,7 +76,15 @@ function closeModal(){
 }
 function showDetails(e){
     var el = $(e);
-    el.find(".modal").addClass("-toggle");
+    if($(window).width() >= 1280){
+        el.next(".modal").addClass("-toggle");
+    }
+}
+function showDetailsMob(e){
+    var el = $(e);
+    if($(window).width() < 1280){
+        el.next(".modal").addClass("-toggle");
+    }
 }
 function fullCarousel(){
     if($(window).width() <= 736){
@@ -250,8 +258,8 @@ $(document).ready(function () {
                         Text = val.Text.substr(Description.length),
                         Title = val.Title;
 
-                    product += '<li onmouseover="showDetails(this)" class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
-                        product += '<div onclick="showDetails(this)">';
+                    product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
+                        product += '<div onmouseover="showDetails(this)" onclick="showDetailsMob(this)">';
                             product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('-')+'/600x700/'+val.FeaturedImage+')"></div>';
                                 product += '<h3 class="title">'+Title+'</h3>';
                                 product += '<p>'+Description+'</p>';
