@@ -1,6 +1,15 @@
 .pg-about
     #wrap 
+        >.footer
+            >.container
+                +mq(1366px, max)
+                    +mq(1280px, min)  
+                        padding-bottom: 25px                
         >.main
+            +mq(1366px, max)
+                +mq(1280px, min)  
+                    padding-bottom: 0
+                    padding-top: 15px             
             .about
                 .content
                     flex-flow: initial
@@ -25,7 +34,7 @@
                             +mq(1440px, max)
                                 left: 15vw
                             opacity: .3
-                    .owl-carousel.owl-paragraphs
+                    .owl-carousel.owl-paragraphs         
                         .owl-dots
                             text-align: center
                             >div 
@@ -49,7 +58,10 @@
                             >*
                                 flex: 1
                                 padding-left: 20px
-                                +rem(('font-size' : 14px, 'line-height' : 22px))
+                                +rem(('font-size' : 14px, 'line-height' : 22px))   
+                                +mq(1366px, max)
+                                    +mq(1280px, min)        
+                                        +rem('font-size', 11px)                                                                   
                                 text-align: justify
                                 &:first-of-type
                                     padding-right: 20px

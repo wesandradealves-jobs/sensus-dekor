@@ -112,9 +112,6 @@
                 >small 
                     +rem('font-size', 12px)
             >.close
-                // +mq(414px, max)
-                //     .tcon-menu__lines::after, .tcon-menu__lines::before
-                //         background: white
                 +mq(812px, max)
                     top: 10px
                     transform: scale(.8)
@@ -123,6 +120,8 @@
                 +mq(812px, max)
                     height: 100vh
                 >p 
+                    @media only screen and (max-height:414px)
+                        display: none
                     +mq(812px, max)
                         margin: 14px auto
                         .btn
@@ -155,6 +154,7 @@
                                 +mq(414px, max)
                                     text-align: center
                             .title
+                                margin-bottom: 15px
                                 @media only screen and (max-height:414px)
                                     +rem('font-size', 14px)
                                 +mq(414px, max)
