@@ -31,6 +31,7 @@ var url = document.URL,
         loop:false,
         center:false,
         autoWidth:false,
+        autoplay:true,
         margin: 0,
         nav:true,
         dots:true,
@@ -76,15 +77,7 @@ function closeModal(){
 }
 function showDetails(e){
     var el = $(e);
-    if($(window).width() >= 1280){
-        el.next(".modal").addClass("-toggle");
-    }
-}
-function showDetailsMob(e){
-    var el = $(e);
-    if($(window).width() < 1280){
-        el.next(".modal").addClass("-toggle");
-    }
+    el.next().addClass("-toggle");
 }
 function fullCarousel(){
     if($(window).width() <= 736){
@@ -152,7 +145,7 @@ function sendWPP(e){
     var msg = document.getElementById("user_msg").value;		
     var saudacaoencode = encodeURI(saudacao);		
     var url_base = "https://api.whatsapp.com/send?phone=" + telefone + "&text=" + saudacaoencode + "%20" + encodeURI(name) + "%20e%20" + encodeURI(msg);
-    e.attr("href", url_base);	   
+    window.open(url_base)
 }   
 $(document).ready(function () {
     owlSlide.owlCarousel(owlSlideOptions);
@@ -187,7 +180,14 @@ $(document).ready(function () {
         onSelect: function(dateText) {
             $("#user_visit_datepicker").val(dateText);
         },        
-        dayNamesMin: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
+        dateFormat: 'dd/mm/yy',
+        yearSuffix: '',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: false,
+        dayNamesMin: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+        monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
     });
     $("form").submit(function(e) {
         if(!submit)
@@ -218,21 +218,6 @@ $(document).ready(function () {
             }
         }        
     });
-    $( ".products" ).hover(function() {
-        $(this).find(".degrade-bg").fadeOut()
-    }, function() {
-        $(this).find(".degrade-bg").fadeIn()
-    });    
-    $( ".navigation > ul" ).children().each(function() {
-        var e = $(this);
-        e.hover(function() {
-            if(e.children("ul").length){
-                e.click(function() {
-                    e.toggleClass("-toggle")
-                });  
-            }
-        });
-    });    
     $(document).mouseup(function (e){
         var container = $(".-toggle");
         if (!container.is(e.target) 
@@ -242,13 +227,11 @@ $(document).ready(function () {
         }
     });     
     if($("body").is(".pg-products")){
-        var ps = new PerfectScrollbar('.products-list-holder');
         defineAttrs(); 
         if(!getProdCat){
             window.location.href = './';
             return false;
         }
-
         $.getJSON("products.json").done(function( data ) {
             var product = '';
             $.each(data.categories, function(key, val){
@@ -259,7 +242,7 @@ $(document).ready(function () {
                         Title = val.Title;
 
                     product += '<li class="product catId-'+val.CatID+' '+((val.CatID == catID) ? '-shown' : '-hidden')+'">';
-                        product += '<div onmouseover="showDetails(this)" onclick="showDetailsMob(this)">';
+                        product += '<div onclick="showDetails(this)">';
                             product += '<div class="thumbnail" style="background-image:url(assets/imgs/products/'+Category+'/'+Title.toUpperCase().split(' ').join('-')+'/600x700/'+val.FeaturedImage+')"></div>';
                                 product += '<h3 class="title">'+Title+'</h3>';
                                 product += '<p>'+Description+'</p>';
@@ -301,7 +284,6 @@ $(document).ready(function () {
             });
             document.querySelector(".products-list").innerHTML += product;
         });  
-
         $( "body" ).swipe( {
             swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
                 $( ".product" ).each(function() {
@@ -327,7 +309,7 @@ $(document).ready(function () {
                     }
                 });                 
             }
-        });         
+        });                         
     }   
 });
       
