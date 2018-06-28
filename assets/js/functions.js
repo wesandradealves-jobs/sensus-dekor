@@ -31,6 +31,7 @@ var url = document.URL,
         loop:false,
         center:false,
         autoWidth:false,
+        autoplay:true,
         margin: 0,
         nav:true,
         dots:true,
@@ -144,7 +145,7 @@ function sendWPP(e){
     var msg = document.getElementById("user_msg").value;		
     var saudacaoencode = encodeURI(saudacao);		
     var url_base = "https://api.whatsapp.com/send?phone=" + telefone + "&text=" + saudacaoencode + "%20" + encodeURI(name) + "%20e%20" + encodeURI(msg);
-    e.attr("href", url_base);	   
+    window.open(url_base)
 }   
 $(document).ready(function () {
     owlSlide.owlCarousel(owlSlideOptions);
@@ -179,7 +180,14 @@ $(document).ready(function () {
         onSelect: function(dateText) {
             $("#user_visit_datepicker").val(dateText);
         },        
-        dayNamesMin: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
+        dateFormat: 'dd/mm/yy',
+        yearSuffix: '',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: false,
+        dayNamesMin: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+        monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
     });
     $("form").submit(function(e) {
         if(!submit)
@@ -210,21 +218,6 @@ $(document).ready(function () {
             }
         }        
     });
-    $( ".products" ).hover(function() {
-        $(this).find(".degrade-bg").fadeOut()
-    }, function() {
-        $(this).find(".degrade-bg").fadeIn()
-    });    
-    $( ".navigation > ul" ).children().each(function() {
-        var e = $(this);
-        e.hover(function() {
-            if(e.children("ul").length){
-                e.click(function() {
-                    e.toggleClass("-toggle")
-                });  
-            }
-        });
-    });    
     $(document).mouseup(function (e){
         var container = $(".-toggle");
         if (!container.is(e.target) 
@@ -234,7 +227,6 @@ $(document).ready(function () {
         }
     });     
     if($("body").is(".pg-products")){
-        var ps = new PerfectScrollbar('.products-list-holder');
         defineAttrs(); 
         if(!getProdCat){
             window.location.href = './';

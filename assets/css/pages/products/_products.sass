@@ -3,20 +3,6 @@
         >.main
             z-index: initial
     .products
-        +mq(738px, min)
-            .degrade-bg
-                background: rgb(2,0,36)
-                background: -moz-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 35%, #FFF 100%)
-                background: -webkit-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 35%, #FFF 100%)
-                background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(9,9,121,0) 35%, #FFF 100%)
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1)                
-                bottom: 0
-                display: block 
-                height: 100%
-                left: 0
-                position: absolute
-                width: 100%        
-                z-index: 2  
         &-navigation
             align-items: center
             @extend .flex
@@ -25,15 +11,13 @@
             left: calc(50% - 900px/2)
             +mq(812px, max)
                 left: 0
-                top: 16vw
-                +mq(736px, max)
-                    top: 19vw
-                +mq(480px, max)
-                    top: 40vw
+                top: 180px
+                +mq(568px, max)
+                    top: 140px
                     +mq(414px, max)
-                        top: 35vw
-                        +mq(320px, max)
-                            top: 13vw
+                        top: 180px
+                    +mq(320px, max)
+                        top: 100px                        
             position: absolute
             top: 50%
             max-width: 900px
@@ -70,14 +54,14 @@
                 +mq(480px, max)
                     padding: 0
             &-holder
-                height: 480px
-                overflow-x: hidden
-                padding-right: 60px
-                +mq(737px, max)
-                    padding-right: 15px
+                // height: 480px
+                // overflow-x: hidden
+                // padding-right: 60px
+                // +mq(737px, max)
+                //     padding-right: 15px
                 position: relative
-            &.-bottom::after
-                bottom: -100% 
+            // &.-bottom::after
+            //     bottom: -100% 
             >*
                 color: gray
                 cursor: pointer
@@ -132,18 +116,19 @@
                 //     .tcon-menu__lines::after, .tcon-menu__lines::before
                 //         background: white
                 +mq(812px, max)
-                    top: 0
+                    top: 10px
                     transform: scale(.8)
-                    padding: 0 0
-                    +mq(414px, max)
-                        top: 10px
-                        padding: 0 10px
+                    padding: 0 10px
             .modal-content
                 +mq(812px, max)
                     height: 100vh
                 >p 
                     +mq(812px, max)
-                        display: none                 
+                        margin: 14px auto
+                        .btn
+                            transform: scale(.7)
+                        >small
+                            display: none                 
             .btn
                 +rem('font-size', 16px)
             &.-product
@@ -174,14 +159,10 @@
                                     +rem('font-size', 14px)
                                 +mq(414px, max)
                                     +rem('font-size', 22px)
-                                &+p 
+                                &~p 
+                                    +rem(('font-size':10px, 'line-height':19px))
                                     @media only screen and (max-height:414px)
-                                        +rem('font-size', 12px)
-                                    margin: 5px 0 15px
-                                    &~p 
-                                        +rem(('font-size':10px, 'line-height':16px))
-                                        @media only screen and (max-height:414px)
-                                            +rem('font-size', 9px)
+                                        +rem('font-size', 9px)
                             &:first-child
                                 min-height: 320px
                                 @media only screen and (max-height:414px)
