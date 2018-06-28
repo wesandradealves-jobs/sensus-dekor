@@ -19,7 +19,7 @@ if (!empty($_POST['user_email']) && !empty($_POST['user_nome']) && !empty($_POST
 		<html>
 		<body style='background:#F2F2F2; max-width:600px; margin:auto; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', 'Helvetica', 'Arial', sans-serif; '>	
 			<div class='container' style='background:#FFF; width:90%; margin:auto; padding:20px'>
-		    <div class='logo'><img src='http://www.sensusdekor.com.br/contato.htmlassets/imgs/logo.svg' style='width:150px'></div>
+		    <div class='logo'><img src='http://www.sensusdekor.com.br/assets/imgs/logo.svg' style='width:150px'></div>
 				<div class='header'>
 					<h2 style='font-size:1.6em'><span style='color:#f19200'>$name</span> enviou a seguinte mensagem:</h2>
 					<p><b>Data de envio:</b> $date_send <br> <b>Hora de envio:</b> $hour_send </p>
