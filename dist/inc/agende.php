@@ -46,22 +46,22 @@ if (!empty($_POST['user_email']) && !empty($_POST['user_name'])) {
 	    if (mail($to, $subject, nl2br($template), $headers)) {
 	    	$_SESSION['msg'] = "Agendamento com sucesso! <br> Responderemos em breve.";
 	    	$_SESSION['type'] = "success";
-	    	header('Location:http://www.sensusdekor.com.br/contato.html');	    	
+	    	header('Location:http://www.sensusdekor.com.br/agende.html');	    	
 	    } else {
 	    	$_SESSION['msg'] = "Ocorreu um erro. :( <br> Por algum motivo a mensagem não pode ser enviada. <br> Por favor tente novamente em alguns minutos, caso o erro persista contacte-nos por telefone. Sentimos muito pelo ocorrido. <br> :(";	
 	    	$_SESSION['type'] = "mistakes";    	
-	    	header('Location:http://www.sensusdekor.com.br/contato.html');
+	    	header('Location:http://www.sensusdekor.com.br/agende.html');
 	    }   
 
 
 	} else {
 		$_SESSION['msg'] = "O e-mail informado não é válido. <br> Por gentileza, verifique o e-mail e tente novamente.";
 		$_SESSION['type'] = "mistakes";		
-		header('Location:http://www.sensusdekor.com.br/contato.html');
+		header('Location:http://www.sensusdekor.com.br/agende.html');
 	}
 
 } else {
-	header('Location:http://www.sensusdekor.com.br/contato.html');
+	header('Location:http://www.sensusdekor.com.br/agende.html');
 }
 
 
