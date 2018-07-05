@@ -1,13 +1,15 @@
 {
-  "name": "default-project",
-  "version": "1.0",
-  "private": false,
+  "name": "sensus-dekor",
+  "version": "1.0.0",
+  "description": "* Container width is set on objects.sass:\r > Just set the max-width for the desired new app, respecting the 15px side paddings.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^4.0.1",
-    "owl.carousel2": "^2.2.1"
-  },
-  "devDependencies": {
+    "owl.carousel2": "^2.2.1",
     "browser-sync": "^2.23.7",
     "date-picker": "^0.5.0",
     "del": "^3.0.0",
@@ -40,5 +42,15 @@
     "run-sequence": "^2.2.1",
     "sass-rem": "^2.0.1",
     "scrollreveal": "^3.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesandradealves-jobs/sensus-dekor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wesandradealves-jobs/sensus-dekor/issues"
+  },
+  "homepage": "https://github.com/wesandradealves-jobs/sensus-dekor#readme"
 }
