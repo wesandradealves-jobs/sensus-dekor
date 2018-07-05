@@ -189,17 +189,16 @@ $(document).ready(function () {
         monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
         monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
     });
-    // $("form").submit(function(e) {
-    //     if(!submit)
-    //         e.preventDefault();           
-    //     submit = true;
-    //     $("body").find(".modal").toggleClass("-toggle");
-    //     setTimeout(function(){
-    //         if(submit)
-    //             closeModal();
-    //             $("form").submit();          
-    //     }, 1000);           
-    // });    
+    $("form").submit(function(e) {
+        if(!submit)
+            e.preventDefault();           
+        submit = true;
+        $("body").find(".modal").toggleClass("-toggle");
+        setTimeout(function(){
+            closeModal();
+            $("form").submit();          
+        }, 1000);           
+    });    
     fullCarousel();
     $(window).on("resize", function () {
         fullCarousel();
