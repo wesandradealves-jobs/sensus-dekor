@@ -1,2 +1,5 @@
 # Ignorar a pasta de módulos da npm
 node_modules/
+
+# Ignorar packages
+package-lock.json
