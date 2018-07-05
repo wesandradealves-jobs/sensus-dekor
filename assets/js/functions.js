@@ -195,8 +195,9 @@ $(document).ready(function () {
         submit = true;
         $("body").find(".modal").toggleClass("-toggle");
         setTimeout(function(){
-            closeModal();
-            $("form").submit();          
+            if(submit)
+                closeModal();
+                $("form").submit();          
         }, 1000);           
     });    
     fullCarousel();
