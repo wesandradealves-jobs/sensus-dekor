@@ -109,7 +109,7 @@
                 <p class="mobile-phrase">
                   Atendemos apenas na cidade do <strong>Rio de Janeiro</strong>
                 </p>                
-                <form action="inc/agende.php" method="POST" id="booking" class="form">
+                <form action="inc/mail.php" method="POST" id="booking" class="form">
                   <div class="content owl-carousel owl-forms">
                     <div>
                       <span><input name="user_name" id="user_name" required type="text" placeholder="Como prererem que te chamem?" /></span>
@@ -118,7 +118,7 @@
                         <input name="user_email" id="user_email" required type="email" placeholder="Em qual e-mail podemos confirmar a visita?" />
                       </span>     
                       <span class="-fill">
-                        <textarea name="user_subject" id="user_subject" placeholder="Tem alguma dúvida ou observação que ache importante? Deixe aqui!"></textarea>
+                        <textarea name="user_msg" id="user_msg" placeholder="Tem alguma dúvida ou observação que ache importante? Deixe aqui!"></textarea>
                       </span>              
                     </div>
                     <div>
@@ -147,6 +147,7 @@
                     </div>                  
                   </div>
                   <div class="-submit -desktop">
+                    <input type="hidden" name="form" value="agende"/>
                     <input class="btn -btn-1" type="submit" value="Agendar Agora!" />  
                   </div>                        
                 </form>

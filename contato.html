@@ -107,7 +107,7 @@
                 <p class="mobile-phrase">
                   Atendemos apenas na cidade do <strong>Rio de Janeiro</strong>
                 </p>
-                <form action="inc/send_mail.php" method="POST" id="contact" class="form">
+                <form action="inc/mail.php" method="POST" id="contact" class="form">
                   <div class="content">
                     <div>
                       <span>
@@ -131,6 +131,7 @@
                           </a>
                         </li>
                         <li>
+                          <input type="hidden" name="form" value="contato"/>
                           <button class="button">
                             <i class="fas fa-envelope"></i>
                           </button>
