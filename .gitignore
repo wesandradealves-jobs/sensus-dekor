@@ -3,3 +3,6 @@ node_modules/
 
 # Ignorar packages
 package-lock.json
+
+# Ignorar dist
+dist/
