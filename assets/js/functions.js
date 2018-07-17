@@ -217,7 +217,7 @@ $(document).ready(function () {
             $(".-toggle").removeClass("-toggle")
         }
     });
-    if($("body").is(".pg-contact")){
+    if($("body").is(".pg-contact") || $("body").is(".pg-booking")){
         getMsg = (url.indexOf("msg=") > -1) ? url.split("msg=").pop() : null;
         (getMsg) ? $(".modal").toggleClass("-toggle") : '';
     }     
