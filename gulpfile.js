@@ -122,6 +122,18 @@ gulp.task('favico', function() {
         .pipe(development(gulp.dest('dist')));
 });
 
+// Copy sitemap to dist
+gulp.task('sitemap', function() {
+    return gulp.src(['./sitemap.xml'])
+        .pipe(development(gulp.dest('dist')));
+});
+
+// Copy robots to dist
+gulp.task('robots', function() {
+    return gulp.src(['./robots.txt'])
+        .pipe(development(gulp.dest('dist')));
+});
+
 // Copy json to dist
 gulp.task('json', function() {
     return gulp.src(['./*.json','!./package.json','!./package-lock.json'])
@@ -203,7 +215,7 @@ gulp.task('clean:build', function () {
 // Build task
 gulp.task('build', function (callback) {
     console.log('Building project...')
-    runSequence('clean:build', ['html', 'json', 'inc', 'css-dist', 'images', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
+    runSequence('clean:build', ['html', 'json', 'inc', 'css-dist', 'images', 'sitemap', 'robots', 'favico', 'fonts', 'htaccess', 'js-dist', 'create-file'],
         callback
     );
 });
