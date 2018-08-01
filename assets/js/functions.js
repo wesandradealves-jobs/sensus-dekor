@@ -189,16 +189,6 @@ $(document).ready(function () {
         monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
         monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
     });
-    // $("form").submit(function(e) {
-    //     if(!submit)
-    //         e.preventDefault();           
-    //     submit = true;
-    //     $("body").find(".modal").toggleClass("-toggle");
-    //     setTimeout(function(){
-    //         closeModal();
-    //         $("form").submit();          
-    //     }, 1000);           
-    // });    
     fullCarousel();
     $(window).on("resize", function () {
         fullCarousel();
@@ -226,7 +216,11 @@ $(document).ready(function () {
         {
             $(".-toggle").removeClass("-toggle")
         }
-    });     
+    });
+    if($("body").is(".pg-contact") || $("body").is(".pg-booking")){
+        getMsg = (url.indexOf("msg=") > -1) ? url.split("msg=").pop() : null;
+        (getMsg) ? $(".modal").toggleClass("-toggle") : '';
+    }     
     if($("body").is(".pg-products")){
         defineAttrs(); 
         if(!getProdCat){

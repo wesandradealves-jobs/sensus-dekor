@@ -52,6 +52,8 @@
                             margin: 0 auto
                             height: 35px
                             width: 35px 
+                            .fab
+                                line-height: 35px
                         .btn
                             font-family: 'Volkswagen'
                             +rem('font-size', 14px)
@@ -60,18 +62,7 @@
                             width: 100%
                         p 
                             font-family: 'Volkswagen'
-    &:not(.-mobile)
-        .categories
-            .-active
-                &::before
-                    background-color: lightgray
-                    +border(999px)
-                    content: ""
-                    display: inline-block 
-                    margin-right: 5px
-                    vertical-align: middle 
-                    height: 5px
-                    width: 5px        
+    &:not(.-mobile)     
         >ul 
             align-items: center
             @extend .flex
@@ -79,4 +70,9 @@
             >li 
                 color: $blue
                 +rem('font-size', 12px)
-                text-transform: uppercase             
+                text-transform: uppercase        
+                >a
+                    position: relative
+                    z-index: 2
+                    >ul 
+                        z-index: 1     
