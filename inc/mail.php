@@ -12,21 +12,17 @@
 		$date_send = date('d/m/Y');
 		$hour_send = date('H:i');
 
-		if($form=='agende'){
+		if($form=='contato'){
+			$subject = "Contato pelo Site";
+			$template = '<div style="border: 3px #1F0F3D solid; margin: 60px auto; max-width: 280px; width: 100%; text-align: center;"><div style="margin: -35px auto 0; display: block; background-color: white; padding: 25px 35px 0; margin-left: auto; margin-right: auto; width: 60px;"><img src="https://www.sensusdekor.com.br/assets/imgs/logo-fundo.png"/> </div><div><h1 style="color: #1F0F3D; font-size: 1.3rem; text-transform: uppercase; margin: 20px auto; padding: 0 15px;">Contato pelo Site</h1><ul style="list-style: none; line-height: 1.3rem; text-align: left; padding: 0 18px; text-transform: uppercase;"><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem; "><strong>Nome</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px;">'.(($name) ? $name : '').'</li><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem; "><strong>E-mail:</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px;">'.(($email) ? $email : '').'</li><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem;"><strong>Mensagem</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px; text-transform: initial;">'.(($msg) ? $msg : '').'</li></ul></div></div>';
+		} else {
 			$user_address = $_POST['user_address'];
 			$user_phone = $_POST['user_phone'];
 			$user_hourly = $_POST['user_hourly'];
 			$user_visit_date = $_POST['user_visit_date'];
-			$user_visit_datepicker = $_POST['user_visit_datepicker'];
-			$subject = "Contato pelo Site";
-			$template = '
-				Teste de Contato
-			';
-		} else {
+			$user_visit_datepicker = $_POST['user_visit_datepicker'];			
 			$subject = "Agendamento pelo Site";
-			$template = '
-				Teste de Agendamento
-			';
+			$template = '<div style="border: 3px #1F0F3D solid; margin: 60px auto; max-width: 280px; width: 100%; text-align: center;"><div style="margin: -35px auto 0; display: block; background-color: white; padding: 25px 35px 0; margin-left: auto; margin-right: auto; width: 60px;"><img src="https://www.sensusdekor.com.br/assets/imgs/logo-fundo.png"/> </div><div><h1 style="color: #1F0F3D; font-size: 1.3rem; text-transform: uppercase; margin: 20px auto; padding: 0 15px;">Cadastro de Agendamento</h1><ul style="list-style: none; line-height: 1.3rem; text-align: left; padding: 0 18px; text-transform: uppercase;"><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem; "><strong>Nome</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px;">'.(($name) ? $name : '').'</li><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem; "><strong>E-mail:</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px;">'.(($email) ? $email : '').'</li><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem;"><strong>Tel.</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px;">'.(($user_phone) ? $user_phone : '').'</li><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem; "><strong>Endereço</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px;">'.(($user_address) ? $user_address : '').'</li><li style="margin-left: 0 !important; margin-bottom: 20px;"><div style="border-radius: 20px; color: white; display: block; text-align: center; margin: 0 auto; padding: 25px; background-color: #1F0F3D;"><div style="border-sizing: border-box; display: inline-block; vertical-align: middle; padding-right: 15px; margin-right: -4px; width: calc(50% - 15px);"><h2 style="font-size: 1.5rem;">'.(($user_hourly) ? $user_hourly : '').'</h2></div><div style="border-sizing: border-box; display: inline-block; vertical-align: middle; padding-left: 15px; margin-right: -4px; width: calc(50% - 15px);"><h2 style="font-size: .9rem; color: #e6a21a">'.(($user_visit_date) ? $user_visit_date : $user_visit_datepicker).'</h2></div></div></li><li style="margin-left: 0 !important; color: #1F0F3D; font-size: .9rem; "><strong>Mensagem</strong></li><li style="margin-left: 0 !important; font-size: .8rem; margin-bottom: 20px; text-transform: initial;">'.(($msg) ? $msg : '').'</li></ul></div></div>';
 		}
 
 		$headers = "From: $email_servidor\r\n" .
@@ -44,5 +40,5 @@
 		$_SESSION['msg'] = false;
 	}
 
-	header('Location:https://www.sensusdekor.com.br/contato.html?msg='.$_SESSION['msg']);	
+	header('Location:https://www.sensusdekor.com.br/'.(($form=='contato') ? 'contato' : 'agende').'.html?msg='.$_SESSION['msg']);	
 ?>
