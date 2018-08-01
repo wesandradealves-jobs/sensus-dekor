@@ -11,13 +11,21 @@
             left: calc(50% - 900px/2)
             +mq(812px, max)
                 left: 0
-                top: 180px
+                +mq(736px, max)
+                    @media only screen and (orientation: landscape)
+                        top: 150px                     
+                    @media only screen and (orientation: portrait)
+                        top: 210px   
+                +mq(640px, max)
+                    @media only screen and (orientation: landscape)
+                        top: 120px                     
+                    @media only screen and (orientation: portrait)
+                        top: 160px    
                 +mq(568px, max)
-                    top: 140px
-                    +mq(414px, max)
-                        top: 180px
-                    +mq(320px, max)
-                        top: 100px                        
+                    @media only screen and (orientation: landscape)
+                        top: 100px                     
+                    @media only screen and (orientation: portrait)
+                        top: 120px  
             position: absolute
             top: 50%
             max-width: 900px
@@ -74,6 +82,7 @@
                 padding: 0 15px 30px
                 position: relative
                 width: 20%
+                -webkit-tap-highlight-color:  rgba(255, 255, 255, 0)
                 +mq(1024px, max)
                     width: 25%
                     +mq(768px, max)
@@ -82,6 +91,7 @@
                             padding: 0 10px 25px
                             width: 50%
                 >div
+                    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0)
                     >.title
                         +rem('font-size', 16px)
                         padding: 10px 0
@@ -157,6 +167,7 @@
                                 margin-bottom: 15px
                                 @media only screen and (max-height:414px)
                                     +rem('font-size', 14px)
+                                    padding-right: 30px
                                 +mq(414px, max)
                                     +rem('font-size', 22px)
                                 &~p 
@@ -179,6 +190,14 @@
                                 padding: 30px
                                 @media only screen and (max-height:320px)
                                     padding: 10px
+                                +mq(736px, max)
+                                    max-height: 100%
+                                    @media only screen and (max-height:414px)
+                                        max-height: 320px
+                                    +mq(640px, max)
+                                        @media only screen and (orientation: portrait)
+                                            max-height: 220px 
+                                    overflow: auto
                                 +mq(360px, max)
                                     padding: 15px
 

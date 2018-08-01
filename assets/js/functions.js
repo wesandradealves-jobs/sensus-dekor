@@ -74,10 +74,16 @@ function closeMenu(){
 function closeModal(){
     $(".modal:not(.navigation):not(.-product)").fadeOut(),
     $(".-toggle").removeClass("-toggle");
+
+    $("body").css("overflow", "auto");
 }
 function showDetails(e){
     var el = $(e);
     el.next().addClass("-toggle");
+
+    if($(window).width() <= 736){
+        $("body").css("overflow", "hidden");
+    }
 }
 function fullCarousel(){
     if($(window).width() <= 736){
@@ -95,7 +101,8 @@ function openSimblings(e){
     var el = $(e),
         index = el.parent().index();
 
-        if($(window).width() > 736){
+        
+        if($(window).width() >= 736){
             closeModal();
             if(index > 0){
                 el.closest(".product").next().find(".modal").addClass("-toggle");
@@ -103,6 +110,8 @@ function openSimblings(e){
                 el.closest(".product").prev().find(".modal").addClass("-toggle");
             }
         } else {
+            $("body").css("overflow", "hidden");
+
             var gal = el.closest(".products-navigation").closest("div").children("div").find(".gallery"),
                 index = el.parent().index(),
                 imgs = gal.children("div"),
