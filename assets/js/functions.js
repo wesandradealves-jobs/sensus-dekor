@@ -199,7 +199,7 @@ $(document).ready(function () {
                 owl.removeClass('off');
                 owlParagraphs.removeClass('off');
             }
-            window.location.href = window.location.href;
+            // window.location.href = window.location.href;
         } else {
             if ( !$('.owl-carousel').hasClass('off') ) {
                 owl.addClass('off').trigger('destroy.owl.carousel');
